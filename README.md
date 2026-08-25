@@ -17,19 +17,55 @@ Bookmark Tab Manager replaces your browser's new tab page with an organized, vis
 - Session tracker — see your recent browsing activity at a glance
 - Broken link checker, import/export, and more
 
-**Pro** unlocks visual customization (50+ gradient themes, video and Unsplash backgrounds, particles), productivity tools (AI-powered auto-categorize, heatmap, streak tracking, weekly reports), child lock with a PIN, ambient sounds, dual-timezone clocks, unlimited incognito access, and Markdown export.
+Try Pro free for 1 hour from any new tab — no payment required.
 
 ## Free vs Pro
 
-| | Free | Pro |
-|---|---|---|
-| Spaces, folders, bookmarks | Unlimited | Unlimited |
-| Themes | Dark / Light | 50+ gradients, video & photo backgrounds |
-| AI Auto-Categorize | — | ✅ |
-| Ambient sounds | — | ✅ |
-| Device activations | — | 3 (Monthly) · 5 (Yearly) · Unlimited (Lifetime) |
+### ✅ Free — always
 
-Try Pro free for 1 hour from any new tab — no payment required.
+- **One-click Import (Chrome & Firefox)** — upload your bookmark HTML file, done in seconds
+- **Spaces & Smart Folders** — unlimited spaces, drag & drop to reorder
+- **Live Clock & Weather** — 25+ languages, real-time conditions and city name
+- **Instant Bookmark Search** — press `/` to search, bookmark-only results
+- **Dark & Light Themes**
+- **Tags & Filter** — tag bookmarks, click a chip to filter instantly
+- **Privacy Mode** — blur all folders for screen sharing
+- **Open in Incognito** — 100 opens/month
+- **Right-click Context Menu** — 13 quick actions (edit, duplicate, tag, remind, QR code, etc.)
+- **Broken Link Checker** — scan up to 50 bookmarks per click
+- **Weekly Broken Link Scan** — automatic background scan with notification
+- **Folder Emoji Picker** — 200+ emojis, 100+ animated (2 animated folders/month free)
+- **Bulk Select & Delete**
+- **Backup & Restore** — export/import as JSON, plus Chrome-compatible HTML
+- **Keyboard Shortcuts & Navigation** — `Ctrl+B` add, `Ctrl+N` new folder, `Ctrl+E` backup, `/` search, `Q` quick add, arrow-key navigation
+- **Visit Counter & Dates** — open count, last visited, date added
+- **Custom Background** — 2 changes/week, up to 6MB
+- **Smart Onboarding** — default template, import with auto-categorize, or start fresh
+- **Undo Delete** — 5-second undo toast
+- **Quick Add Current Tab** — press `Q` or click ➕
+- **Move Folder Between Spaces**
+- **Stale Bookmark Badge** — flags links unvisited for 90+ days
+- **Drag to Reorder Spaces**
+
+### ⭐ Pro — unlock the full experience
+
+- **50 Gradient Themes** — curated presets, custom color picker, gradient direction, solid color mode
+- **Video Background** — local MP4 up to 30s, optional sound
+- **Unsplash Backgrounds** — auto-load photos by category, changes every tab or daily
+- **Save 5 Background Presets**
+- **Animated Particles** — circles, stars, hearts, snowflakes, dots — adjustable speed/density
+- **Full Color Control** — text, accent color, font family (Inter, Poppins, Roboto, Nunito, Mono)
+- **Per-folder Styling** — background color/image, border color, font color per folder
+- **Child Lock & PIN** — master PIN, auto-lock after 1–60 min of inactivity
+- **AI Auto-Categorize** — Claude AI suggests the best folder for a bookmark
+- **Ambient Sounds** — Rain, Coffee shop, Ocean, Fireplace, Forest, LoFi
+- **Usage Heatmap & Streak** — 7-day hour-by-hour heatmap, daily streak tracker
+- **Weekly Report** — auto-generated, top 5 most-visited bookmarks and trends
+- **Dual Timezone Clock** — two city clocks from 16+ cities
+- **Export as Markdown** — for Notion, Obsidian, or any note app, folder structure preserved
+- **Unlimited Incognito** — no monthly cap
+- **Pomodoro Timer + Scratchpad** — 25/5/15 min focus timer, quick notes
+- **Multi-device Activation** — Monthly = 3 devices, Yearly = 5, Lifetime = unlimited
 
 ## Availability
 
