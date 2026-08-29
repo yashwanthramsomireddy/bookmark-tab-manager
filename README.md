@@ -1,5 +1,7 @@
 # Bookmark Tab Manager
 
+**Current version: v1.4.14** — see [CHANGELOG.md](./CHANGELOG.md) for full version history.
+
 A beautiful, fast new-tab replacement for Chrome and Firefox — organize bookmarks into folders and spaces, with a customizable clock, weather, themes, and productivity tools built in.
 
 - 🌐 [Chrome Web Store](https://chromewebstore.google.com/detail/liamjkjiaklgnjeemocgmlmlgbgomloj)
