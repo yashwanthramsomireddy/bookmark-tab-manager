@@ -2,7 +2,53 @@
 
 All notable changes to Bookmark Tab Manager.
 
-## v1.5.0 — August 2026 (Latest)
+## v1.9.2 — August 2026 (Latest)
+
+- **Fix:** Tags per bookmark are now capped at 2 for real — previously there was no actual limit, only a display truncation (bookmark rows always showed just the first 2 even if more were saved underneath), which looked like a hard limit that wasn't really there. Both the single-bookmark tag editor and the Bulk Tag Editor now enforce this directly.
+
+## v1.9.1 — August 2026
+
+- **Fix:** Bulk Tag Editor: the 🏷️ Tag button did nothing (console error) — it was passing the click event into the popup instead of the button itself
+
+## v1.9.0 — August 2026
+
+- **New:** Bulk Tag Editor — new 🏷️ Tag button in bulk-select mode lets you add or remove a tag across every selected bookmark at once
+- **New:** Multi-Bookmark Drag Select — in bulk-select mode, drag a selection box across the grid to select several bookmarks at once instead of clicking each checkbox individually
+
+## v1.8.2 — August 2026
+
+- **Fix:** Settings → Widgets → "Most visited" toggle now works the first time you switch it on — it used to silently do nothing until you also toggled Stats card, which happened to force the same refresh
+- **Fix:** Unsplash "Change" row (Settings → Background) — the 🔀 shuffle button was stretching full-width and wrapping onto its own line below the dropdown; it's now a small icon that sits neatly next to the dropdown, and the "Change" text label was dropped since the dropdown options already say what it does
+
+## v1.8.1 — August 2026
+
+- **New:** The "What's New" red dot now also shows on the 📋 What's New — Changelog button inside Settings → About, not just the ⚙️ gear icon, so it's clear which button the gear dot was pointing you to
+
+## v1.8.0 — August 2026
+
+- **New:** Recently Visited — new collapsible 🕐 section on Home showing your last 8 opened bookmarks, next to Most Visited (Settings → Widgets to toggle)
+- **New:** On This Day — a dismissible 📅 card surfaces on Home when a bookmark was added exactly 1 year ago today
+- **New:** What's New dot — a small red dot now appears on the ⚙️ Settings icon after an update, until you open Settings → About → What's New
+
+## v1.7.0 — August 2026
+
+- **New:** Collapse All / Expand All Folders — new toggle button next to "+ Add space" collapses or expands every folder in the current space in one click
+- **New:** Copy All Links in Folder — new 📋 folder action copies every bookmark URL in a folder to your clipboard as a list, alongside the existing "Open all in new tabs"
+- **New:** Folder Notes — add a short note to a folder itself (e.g. "Check monthly") via the new 📝 folder action; shows as a hover tooltip once set
+- **New:** Duplicate Bookmark Detector — new "Find duplicate bookmarks" tool (Settings → Tools) scans every space and folder for the same link saved more than once, and lets you remove the copies you don't need
+
+## v1.6.1 — August 2026
+
+- **New:** Search box opacity slider (Settings → Layout) — the Search Preview Dropdown was hard to read against a busy background; it now defaults to a solid, readable panel and you can adjust how see-through it is
+- **Fix:** Tag filter chips (footer) now correctly show which tag is active when clicked — the highlight was never updating before, so a selected tag looked identical to an unselected one
+
+## v1.6.0 — August 2026
+
+- **New:** Search Preview Dropdown — a live floating preview of your top matches appears under the search bar as you type, click one to jump straight to it (the full search results grid still works exactly as before)
+- **New:** Quick Jump (Ctrl+K) — a new command-palette overlay to jump straight to any space or folder by typing a few letters, separate from the search bar which only filters bookmarks
+- **New:** Search by #tag — type #tagname in the search bar to filter bookmarks by tag instead of name/URL
+
+## v1.5.0 — August 2026
 
 - **Fix:** Discount slider (Admin) now allows 1%-99% instead of being capped between 10%-75%
 - **Fix:** FAQ popup: question titles and search/section borders were still following the old theme colors, making them unreadable in white theme and custom backgrounds — now always white text on the pitch-black popup, irrespective of theme

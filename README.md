@@ -1,6 +1,6 @@
 # Bookmark Tab Manager
 
-**Current version: v1.5.0** — see [CHANGELOG.md](./CHANGELOG.md) for full version history.
+**Current version: v1.9.2** — see [CHANGELOG.md](./CHANGELOG.md) for full version history.
 
 A beautiful, fast new-tab replacement for Chrome and Firefox — organize bookmarks into folders and spaces, with a customizable clock, weather, themes, and productivity tools built in.
 
@@ -30,14 +30,14 @@ Try Pro free for 1 hour from any new tab — no payment required.
 - **Live Clock & Weather** — 25+ languages, real-time conditions and city name
 - **Instant Bookmark Search** — press `/` to search, bookmark-only results
 - **Dark & Light Themes**
-- **Tags & Filter** — tag bookmarks, click a chip to filter instantly
+- **Tags & Filter** — tag bookmarks (up to 2 per bookmark), click a chip to filter instantly
 - **Privacy Mode** — blur all folders for screen sharing
 - **Open in Incognito** — 100 opens/month
 - **Right-click Context Menu** — 13 quick actions (edit, duplicate, tag, remind, QR code, etc.)
 - **Broken Link Checker** — scan up to 50 bookmarks per click
 - **Weekly Broken Link Scan** — automatic background scan with notification
 - **Folder Emoji Picker** — 200+ emojis, 100+ animated (2 animated folders/month free)
-- **Bulk Select & Delete**
+- **Bulk Select & Delete** — plus bulk tag add/remove and drag-to-select a group of bookmarks
 - **Backup & Restore** — export/import as JSON, plus Chrome-compatible HTML
 - **Keyboard Shortcuts & Navigation** — `Ctrl+B` add, `Ctrl+N` new folder, `Ctrl+E` backup, `/` search, `Q` quick add, arrow-key navigation
 - **Visit Counter & Dates** — open count, last visited, date added
@@ -48,6 +48,13 @@ Try Pro free for 1 hour from any new tab — no payment required.
 - **Move Folder Between Spaces**
 - **Stale Bookmark Badge** — flags links unvisited for 90+ days
 - **Drag to Reorder Spaces**
+- **Collapse All / Expand All Folders** — one click to fold or unfold every folder in the active space
+- **Copy All Links in Folder** — copy every bookmark URL in a folder to your clipboard as a list
+- **Folder Notes** — attach a short note/description to a folder itself
+- **Duplicate Bookmark Detector** — scans every space and folder for the same link saved more than once
+- **Recently Visited** — collapsible section showing your last 8 opened bookmarks
+- **On This Day** — dismissible reminder when a bookmark was added exactly 1 year ago today
+- **What's New Indicator** — a dot on the Settings icon after an update, until you check the changelog
 
 ### ⭐ Pro — unlock the full experience
 
