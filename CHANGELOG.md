@@ -2,7 +2,18 @@
 
 All notable changes to Bookmark Tab Manager.
 
-## v1.4.14 — August 2026 (Latest)
+## v1.5.0 — August 2026 (Latest)
+
+- **Fix:** Discount slider (Admin) now allows 1%-99% instead of being capped between 10%-75%
+- **Fix:** FAQ popup: question titles and search/section borders were still following the old theme colors, making them unreadable in white theme and custom backgrounds — now always white text on the pitch-black popup, irrespective of theme
+- **Fix:** "Are you sure?" delete-confirmation popup now also uses the same pitch-black background, white text, and light-gray border as every other popup, irrespective of theme
+- **Fix:** Manage Devices popup: device name labels were still following the old theme text color — now always white on the black popup
+
+## v1.4.15 — August 2026
+
+- **Fix:** Session, Changelog, Donate, Admin, FAQ, Manage Devices, Upgrade/Trial, Edit Bookmark, Quick Add, and Share popups now all show a consistent pitch-black background with white text and a light-gray border, no matter what theme is active — previously each popup had its own inconsistent background color
+
+## v1.4.14 — August 2026
 
 - **Fix:** Settings → About version number was a hand-typed "v1.4" that never updated — now pulled live from the actual build/manifest version every load, so it always matches the installed zip
 
