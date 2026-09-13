@@ -2,7 +2,143 @@
 
 All notable changes to Bookmark Tab Manager.
 
-## v1.9.2 — August 2026 (Latest)
+## v1.24.5 — September 2026 (Latest)
+
+- **Fix:** Toolbar popup — the title, "BTM Active" checkmark, and Open New Tab button were still green from the old logo; recolored to match the amber/orange rebrand
+- **Fix:** Incognito/Private browsing workaround — wording now matches exactly between the extension's own FAQ and the teamexykings.in website FAQ
+
+## v1.24.4 — September 2026
+
+- **New (Free):** FAQ — added "Does Bookmark Tab Manager work in Incognito / Private browsing?" explaining the one-time "Allow in Incognito" toggle + Open New Tab workaround (a browser-wide rule that applies to every extension, not a BTM limitation)
+
+## v1.24.3 — September 2026
+
+- **New (Free):** The "TeamExyKings" bar now gives a little periodic shake to catch your eye — hover over it and it holds still
+
+## v1.24.2 — September 2026
+
+- **UI:** Fixed the odd-looking pale "Suggest a Feature" button — now a solid gold gradient matching the other big Settings buttons
+- **New (Free):** The "TeamExyKings" bar at the bottom of Settings is now clickable — opens teamexykings.in in a new tab
+- **New (Free):** FAQ — added a "Does TeamExyKings have other projects?" entry pointing to teamexykings.in
+
+## v1.24.1 — September 2026
+
+- **UI:** Moved the FAQ & Help button up next to What's New — Changelog and Suggest a Feature, styled to match, instead of being a small link tucked under About
+- **Privacy:** Donate → Scan to Pay UPI no longer prints the raw UPI ID as visible text — the QR code and the Copy UPI ID button still work exactly the same
+
+## v1.24.0 — September 2026
+
+- **New (Free):** 😀 Space tabs can now have their own emoji (plain or animated) — click the new 😀 icon on any space tab, same picker already used for folders
+- **New (Free):** 📦 Bulk-selected bookmarks can now be moved to a folder all at once — a new "Move to folder" button appears next to Tag/Delete once you've bulk-selected bookmarks, listing every folder across every space
+
+## v1.23.0 — September 2026
+
+- **New (Free):** ☁️ Google Drive Backup is now fully live on both Chrome and Firefox — sign in with Google from Settings → Import & Backup and push a backup (JSON + HTML, plus Markdown for Pro) straight to your own Drive
+- **New (Free):** Drive backups are now organized automatically — each backup lands in a dated folder (e.g. "12-Sep-2026") inside your "Bookmark Tab Manager Backups" folder, with separate Chrome and Firefox subfolders underneath, so backups from both browsers stay cleanly separated instead of mixing together
+- **Fix:** Drive backup filenames now include the browser name and exact date/time, so repeat backups on the same day no longer create confusing duplicate-looking files
+- **UI:** Several long explainer paragraphs in Settings (the keyboard-shortcuts quick reference, the HTML export note, and all three Chrome Bookmarks Sync descriptions) were taking up a lot of scroll space — each is now a small ⓘ icon that opens a popup with the same info instead
+- **Fix:** Removed a stale hardcoded "v1.4" from the Settings → About footer's copyright line — it was several releases out of date and served no purpose since the real version is already shown elsewhere in Settings
+
+## v1.22.0 — September 2026
+
+- **New (Free):** New app icon — refreshed from green to amber/orange, across the toolbar icon, the Chrome/Firefox store listing, and all promotional artwork (marquee, promo tile, social kit, YouTube assets, landing page). Purely visual — nothing about how BTM works has changed.
+
+## v1.21.0 — September 2026
+
+- **New (Free):** Chrome Bookmarks Sync — Detect: adding a bookmark directly in Chrome (or syncing one in from another device via your Google account) pops up a prompt in BTM offering to add it into a matching or new folder
+- **New (Free):** Chrome Bookmarks Sync — Write-back: a new Settings toggle mirrors your BTM Spaces into a dedicated "Bookmark Tab Manager" folder in Chrome (one subfolder per Space) — your existing Chrome folders are never read from or touched. Deleting something in BTM removes its Chrome copy too, but only after a grace period you control (1-12 hours, default 12), so a mistaken delete can still be recovered from the still-present Chrome copy
+- **New (Free):** Chrome Bookmarks Sync — locking a Space (or turning on Child Lock) immediately pulls that content's mirror back out of Chrome, and restores it the moment you unlock again, so locked content doesn't sit unprotected in Chrome's own bookmark manager. No new backend/Supabase setup needed — this feature is entirely client-side.
+
+## v1.20.0 — September 2026
+
+- **New (Free):** Suggest a Feature — a new button in Settings lets you send a title + description straight to the developer, free or Pro, no sign-up or email required
+- **New (Pro/Admin):** Thank-You Message — a one-time celebratory message the admin can write and enable from the Admin Dashboard, shown once to every user (free and Pro) on their next new tab, dismissible after 10 seconds with a 30-second auto-dismiss
+- **New (Pro/Admin):** Feature Suggestions inbox — submissions land in the Admin Dashboard (plus an instant email notification) so they can be triaged and marked reviewed. **Requires a one-time Supabase setup — see `backend/00_DEPLOY_CHECKLIST.md` before either of these two features works end-to-end.**
+
+## v1.19.0 — September 2026
+
+- **New (Free):** Taste Pro Backgrounds for Free — Custom Colors/Gradients, Video Background, and Unsplash Backgrounds can now each be turned on up to 2 times a month at no cost, so every user gets a taste of Pro styling (Custom Image Background keeps its existing, separate 2 times a week)
+- **New (Pro):** 1-Hour Pro Trial — when your trial ends, a new popup asks you to Upgrade or Continue with Free; choosing Free resets Pro-only appearance settings (colors, video/Unsplash backgrounds, per-folder styling, Child Lock, and similar) back to free defaults so you start clean — your bookmarks, folders, and spaces are never touched
+- **Fix:** Child Lock — removing or changing an existing Child Lock no longer requires an active Pro plan, so a lapsed trial or plan can never lock you out of your own bookmarks (matches how Space Lock already worked)
+- **Fix:** Saved Background Presets — reloading a saved preset now correctly requires Pro, closing a gap where a free account that once saved presets (e.g. during a trial) could keep reapplying Pro-only backgrounds indefinitely
+- **Fix:** Custom Colors/Gradients — switching to a Custom background no longer grants unlimited free use; it now draws from the same new 2x/month taste allowance as Video Background and Unsplash
+
+## v1.18.0 — September 2026
+
+- **New (Pro):** Master PIN Reset — forgot your Child Lock or Space Lock PIN? A new "Forgot your PIN?" link (in Settings, and directly on both lock screens) emails a one-time reset code to the address on file for your license; entering it removes Child Lock and every locked space on this device at once, so you're never permanently locked out of your own bookmarks. **Requires a one-time Supabase setup — see `server-setup/README.md` before this works end-to-end.**
+
+## v1.17.0 — September 2026
+
+- **New (Pro):** Child Lock & Space Lock — setting, changing, unlocking, or removing a PIN now uses a proper popup instead of the browser's native prompt boxes, with a new "Allow letters & symbols" toggle: off (default) keeps the original 4-6 digit PIN, on lets you use any 4-6 character PIN — letters, symbols, or a mix, like "&8%2" or "199/92"
+
+## v1.16.0 — September 2026
+
+- **Fix:** Space Lock — a locked space's bookmarks could still leak into Most Used, Recently Visited, On This Day, both Search bars, and the Weekly Report; all now skip locked spaces entirely. The lock screen's "switch to a different space instead" option now actually switches you to an unlocked space rather than just dismissing the lock, and moving a folder or changing a background can no longer target a locked space
+- **Fix:** Export a Single Space — re-importing a JSON file that was exported from the ⬇ single-space option now correctly restores it as a new space, instead of being rejected
+- **Fix:** Bookmark Templates for New Spaces — templates (and creating a blank new space) now respect the free plan's space and bookmark limits instead of bypassing them
+- **Fix:** Bookmark Visit Goal — the weekly 🎯 progress badge now correctly disappears if your Pro trial or plan ends, instead of continuing to show on a free account
+- **Fix:** Folder Icon from Favicon — picking a new folder emoji (or removing one) now also clears any favicon icon that was set, so the change actually takes effect instead of the old favicon still showing
+- **Fix:** Curated 10 Background Gradients — fixed 7 of the 10 curated picks not actually using their guaranteed text color due to it matching the theme's own default
+- **Fix:** Keyboard Shortcuts — moved out of the main Settings scroll into its own popup (⌨️ Keyboard Shortcuts → Customize), so Settings stays shorter and cleaner
+- **Fix:** Settings → About — an already-expired license now shows its countdown chip in red instead of amber
+- **Fix:** Bookmark Import from URL — fixed a background listener that could be left running if a page took longer than 8 seconds to load its title
+
+## v1.15.2 — September 2026
+
+- **Fix:** The top-right icon rail is more compact — the dark/light theme toggle now sits beside the Settings gear instead of stacked below it, so there's no chance of it (or the space-tabs row below) crowding the discount banner even when the clock is hidden and the page shifts up
+
+## v1.15.1 — September 2026
+
+- **Fix:** Settings → Clock & Weather — Bold clock, Milliseconds, Compact, Show seconds, and Clock size now hide together when "Show clock" is off, instead of staying visible with nothing to affect; Milliseconds also hides whenever Show seconds is off, since it never actually displayed without seconds shown
+- **Fix:** Layout overlap when the clock is hidden, first pass — later refined in 1.15.2 with a cleaner fix
+
+## v1.15.0 — September 2026
+
+- **New (Pro):** Text Stroke/Outline — two new sliders in Settings → Colors & Font let you add a 1-5px outline (plus a color picker) to the header Title/Subtitle and, separately, to folder titles
+- **New:** Curated 10 Background Gradients — a new "✨ Curated 10" row above the usual 60 shades in the Custom background picker, each one hand-picked with a guaranteed-readable text color instead of relying only on the live auto-contrast check
+- **Fix:** Video background sound no longer keeps playing after switching to Unsplash or turning Video BG off — both settings now fully stop the video (pause + clear + unload) instead of only hiding it
+- **Fix:** Unsplash widget text color no longer flickers back to the theme default after opening Settings or changing any preference — the photo-based color adjustment now persists
+- **Fix:** Upgrade popup — the email field is now wrapped in a proper form so Chrome's native address/email autofill can fill it in reliably
+
+## v1.14.0 — September 2026
+
+- **New:** Google Drive Backup — new ☁️ Backup to Google Drive button in Settings → Import & Backup pushes a real backup straight to your Drive (JSON + HTML free, plus Markdown for Pro)
+- **Fix:** Toolbar popup — removed the "⚙️ Settings" button, which opened a plain new tab and didn't actually open Settings; Disable/Enable now also refreshes any already-open BTM tab immediately instead of requiring a manual refresh
+- **Fix:** Export as Markdown is now correctly Pro-only, matching what the README always said — it had no actual lock before this
+
+## v1.13.0 — September 2026
+
+- **New:** Save for Later — new 📚 option in the bookmark right-click menu copies it into a dedicated "Reading List" space, without duplicating URLs you've already saved
+- **New:** Snooze a Bookmark — new ⏱️ right-click option to remind yourself tomorrow, in 3 days, or in a week, without typing an exact date
+- **New:** Show Seconds toggle — new setting under 🕐 Clock & Weather lets you hide the seconds on the clock
+- **New:** Folder Icon from Favicon — new 🖼️ folder action adopts the favicon of your most-visited (or first-added) bookmark as the folder's icon, as an alternative to an emoji
+- **New:** Shareable Space Link — new 🔗 icon on each space tab creates a read-only preview link for that space; note this opens as a browser link rather than a permanently-hosted URL, so very large spaces should use Export instead
+- **New:** Custom Keyboard Shortcuts — new ⌨️ Keyboard Shortcuts section in Settings lets you reassign Search, Quick Add, Add Bookmark, New Folder, Export Backup, and Scratchpad to your own keys if one conflicts with another extension
+- **New:** Bookmark Health Digest — the weekly broken-link check now arrives as a single combined notification, adding a "top pick this week" highlight for Pro users instead of being a separate, manual-only report
+- **New:** A one-time note now appears under Import & Backup explaining that your data lives locally in this browser and doesn't travel via Chrome/Firefox account sync — use Backup/Restore to move it between devices
+
+## v1.12.0 — September 2026
+
+- **New:** License Expiry Reminder — a small dismissible corner reminder now appears when your Monthly/Yearly plan is within 7 days of expiring, in addition to the existing renewal emails; the expiry date in Settings → About is also now clickable and shows the confirmed D/Mon/YYYY format (e.g. 8/Sep/2026)
+- **New:** Renew / Check Status now opens the same Monthly/Yearly/Lifetime pricing popup used for new purchases — so you can switch plans on renewal, with any live discount applied, instead of always going straight to your current plan's payment link
+- **New (Pro):** Bookmark Visit Goal — set a weekly visit target on any bookmark from its right-click menu; a 🎯 badge shows your progress for the week
+- **Fix:** Manage Devices — deactivating a device now reliably refreshes the tab afterward for any device, not only when deactivating the one you're currently using
+- **Fix:** Upgrade popup — clicking Monthly/Yearly/Lifetime now shows a "Please wait..." state on the plan buttons while your discount is checked, so it's no longer possible to open several duplicate Razorpay tabs by clicking more than once
+
+## v1.11.0 — September 2026
+
+- **New:** Bookmark Import from URL — paste a URL into Add Bookmark and its page title auto-fills the Name field once it loads
+- **New:** Export a Single Space — new ⬇ icon on each space tab exports just that space as JSON or Markdown, instead of only the whole workspace
+- **New:** Bookmark Templates for New Spaces — the + New Space button now offers Work, Travel, Job Hunt, and Student starter templates, or a blank space
+
+## v1.10.0 — September 2026
+
+- **New:** Sort Spaces — new ⇅ button next to your spaces lets you sort them by Name (A→Z), Most Used, or Recently Added
+- **New:** Drag Folder Between Spaces — drag a folder card straight onto a space tab to move it there, instead of only using the 📦 Move to Space menu
+- **New (Pro):** Per-Space Background — give each space its own background color or image (🎨 icon on the tab) so every space feels visually distinct at a glance
+- **New (Pro):** Space Lock — lock just one sensitive space with its own PIN (🔒 icon on the tab) instead of locking the whole extension with Child Lock
+
+## v1.9.2 — August 2026
 
 - **Fix:** Tags per bookmark are now capped at 2 for real — previously there was no actual limit, only a display truncation (bookmark rows always showed just the first 2 even if more were saved underneath), which looked like a hard limit that wasn't really there. Both the single-bookmark tag editor and the Bulk Tag Editor now enforce this directly.
 

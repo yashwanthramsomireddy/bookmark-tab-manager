@@ -20,8 +20,8 @@
   --card:#0f0f1a;
   --border:rgba(255,255,255,0.08);
   --border-bright:rgba(255,255,255,0.15);
-  --green:#22c55e;
-  --green-dim:#16a34a;
+  --green:#FFB028;
+  --green-dim:#E8790A;
   --text:#ffffff;
   --muted:#888;
   --dim:#444;
@@ -43,9 +43,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 24px;display:fl
 /* ── HERO ── */
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:100px 24px 60px;text-align:center;position:relative;overflow:hidden;}
 .hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.015) 1px,transparent 1px);background-size:40px 40px;}
-.hero::after{content:'';position:absolute;top:20%;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(34,197,94,0.08) 0%,transparent 70%);pointer-events:none;}
+.hero::after{content:'';position:absolute;top:20%;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(255,176,40,0.08) 0%,transparent 70%);pointer-events:none;}
 
-.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);color:var(--green);font-size:11px;font-weight:600;padding:6px 14px;border-radius:20px;margin-bottom:24px;text-transform:uppercase;letter-spacing:.5px;position:relative;z-index:1;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,176,40,0.1);border:1px solid rgba(255,176,40,0.2);color:var(--green);font-size:11px;font-weight:600;padding:6px 14px;border-radius:20px;margin-bottom:24px;text-transform:uppercase;letter-spacing:.5px;position:relative;z-index:1;}
 .hero h1{font-size:clamp(42px,7vw,88px);font-weight:800;color:#fff;line-height:1.05;letter-spacing:-2px;max-width:900px;position:relative;z-index:1;margin-bottom:20px;}
 .hero h1 em{font-style:normal;color:var(--green);}
 .hero p{font-size:clamp(16px,2vw,20px);color:var(--muted);max-width:560px;margin:0 auto 36px;position:relative;z-index:1;font-weight:400;}
@@ -107,7 +107,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 24px;display:fl
 /* ── HOW IT WORKS ── */
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-top:48px;}
 .step{text-align:center;padding:24px;}
-.step-num{width:44px;height:44px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:var(--green);margin:0 auto 16px;}
+.step-num{width:44px;height:44px;background:rgba(255,176,40,0.1);border:1px solid rgba(255,176,40,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:var(--green);margin:0 auto 16px;}
 .step-title{font-size:15px;font-weight:600;color:#fff;margin-bottom:6px;}
 .step-desc{font-size:13px;color:var(--muted);}
 .step-connector{display:none;}
@@ -140,7 +140,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 24px;display:fl
 .faq-a{font-size:13px;color:var(--muted);line-height:1.6;}
 
 /* ── CTA BANNER ── */
-.cta-banner{margin:0 24px 80px;background:linear-gradient(135deg,rgba(34,197,94,0.1),rgba(16,163,74,0.05));border:1px solid rgba(34,197,94,0.2);border-radius:20px;padding:56px 40px;text-align:center;}
+.cta-banner{margin:0 24px 80px;background:linear-gradient(135deg,rgba(255,176,40,0.1),rgba(232,121,10,0.05));border:1px solid rgba(255,176,40,0.2);border-radius:20px;padding:56px 40px;text-align:center;}
 .cta-banner h2{font-size:clamp(24px,4vw,42px);font-weight:800;color:#fff;letter-spacing:-1px;margin-bottom:12px;}
 .cta-banner p{font-size:16px;color:var(--muted);margin-bottom:28px;}
 
@@ -264,8 +264,8 @@ footer{border-top:1px solid var(--border);padding:32px 24px;display:flex;align-i
 
   <!-- FREE FEATURES -->
   <div style="margin:40px 0 16px;">
-    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);border-radius:100px;padding:6px 16px;margin-bottom:24px;">
-      <span style="color:#22c55e;font-weight:700;font-size:13px;">✅ FREE — Always</span>
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,176,40,0.1);border:1px solid rgba(255,176,40,0.2);border-radius:100px;padding:6px 16px;margin-bottom:24px;">
+      <span style="color:#FFB028;font-weight:700;font-size:13px;">✅ FREE — Always</span>
     </div>
     <div class="features-grid">
       <div class="feature-card">
@@ -624,8 +624,12 @@ footer{border-top:1px solid var(--border);padding:32px 24px;display:flex;align-i
       <div class="faq-a">All your bookmarks, settings and preferences are stored locally in your browser's storage (<strong>Chrome or Firefox</strong>) on your device. Nothing is sent to any server. Your data never leaves your browser. Only license key validation communicates with our server (Supabase).</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q">Does it work in incognito mode?</div>
-      <div class="faq-a">Neither Chrome nor Firefox allow extensions to override the new tab page in private/incognito mode by default — this is a browser security policy, not specific to BTM. However, you can still open any bookmark in a private window using the right-click menu → "Open in Incognito". This works without any extra settings.</div>
+      <div class="faq-q">Does BTM consume more RAM and battery?</div>
+      <div class="faq-a">No more than any other new tab page — actually less than most. BTM is built in pure <strong>vanilla JavaScript with zero frameworks</strong>, and on both <strong>Chrome and Firefox</strong> it uses Manifest V3's event-driven background script, which unloads itself when idle instead of sitting in memory all the time like older extensions did. It only runs while a new tab is actually open, and it replaces the new tab you'd have open anyway rather than adding an extra one — so there's no background drain when you're not looking at it.<br><br>The default setup (bookmarks, folders, clock, weather) is lightweight. The only things that use noticeably more RAM/battery are optional <strong>Pro</strong> visual extras — video backgrounds, animated particles and auto-changing Unsplash photos — and only while a new tab is on screen. If you want the lightest possible footprint, stick with a solid color or gradient background and leave particles off; everything else in BTM has negligible impact.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Does Bookmark Tab Manager work in Incognito / Private browsing?</div>
+      <div class="faq-a">Yes, with one quick one-time setup — this is a browser rule, not a BTM limitation: Chrome and Firefox never let any extension auto-replace the new tab page inside an Incognito/Private window, for every extension, not just this one. But BTM still works there once you flip one switch:<br><br>1. <strong>Chrome:</strong> go to <code>chrome://extensions</code> → Bookmark Tab Manager → Details → turn on "Allow in Incognito".<br><strong>Firefox:</strong> go to <code>about:addons</code> → Bookmark Tab Manager → turn on "Run in Private Windows".<br>2. Open an Incognito/Private window, click the BTM toolbar icon, then click "Open New Tab" from the popup.<br><br>That opens BTM exactly like normal, fully private, with all your spaces and bookmarks — just via one click from the toolbar instead of automatically on every new tab.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">Will it replace my existing bookmarks?</div>
@@ -688,7 +692,7 @@ footer{border-top:1px solid var(--border);padding:32px 24px;display:flex;align-i
 
     <div class="faq-item">
       <div class="faq-q">Do you ever offer discounts on Pro plans?</div>
-      <div class="faq-a">Yes! We run limited-time festival discounts of up to 75% off Monthly, Yearly, and Lifetime plans throughout the year. When an offer is live, you'll see a scrolling banner right inside the app next to the settings icon, along with the discounted price shown directly in the Upgrade screen. Join our <a href="https://chat.whatsapp.com/BpZgK3DRcIqA2R9RDn7qBX" target="_blank" style="color:#25d366;font-weight:600;">WhatsApp Community</a> or <a href="https://t.me/BookmarkTabManager" target="_blank" style="color:#2aabee;font-weight:600;">Telegram Community</a> to be the first to know when a new discount goes live — offers are only available while the sale lasts.</div>
+      <div class="faq-a">Yes! We run limited-time festival discounts of up to 99% off Monthly, Yearly, and Lifetime plans throughout the year. When an offer is live, you'll see a scrolling banner right inside the app next to the settings icon, along with the discounted price shown directly in the Upgrade screen. Join our <a href="https://chat.whatsapp.com/BpZgK3DRcIqA2R9RDn7qBX" target="_blank" style="color:#25d366;font-weight:600;">WhatsApp Community</a> or <a href="https://t.me/BookmarkTabManager" target="_blank" style="color:#2aabee;font-weight:600;">Telegram Community</a> to be the first to know when a new discount goes live — offers are only available while the sale lasts.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">I need help — how do I contact support?</div>
@@ -708,7 +712,7 @@ footer{border-top:1px solid var(--border);padding:32px 24px;display:flex;align-i
     <a href="privacy-policy.html">Privacy Policy</a>
     <a href="https://paypal.me/yash92duster" target="_blank">☕ Donate</a>
   </div>
-  <div class="footer-copy">© 2026 Bookmark Tab Manager · TeamExyKings · Chennai, India 🇮🇳 · Chrome &amp; Firefox</div>
+  <div class="footer-copy">© 2026 Bookmark Tab Manager · <a href="https://teamexykings.in/" target="_blank" rel="noopener">TeamExyKings</a> · Chennai, India 🇮🇳 · Chrome &amp; Firefox</div>
 </footer>
 
 </body>

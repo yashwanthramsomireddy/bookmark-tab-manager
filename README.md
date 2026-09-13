@@ -1,6 +1,6 @@
 # Bookmark Tab Manager
 
-**Current version: v1.9.2** — see [CHANGELOG.md](./CHANGELOG.md) for full version history.
+**Current version:** — see [CHANGELOG.md](./CHANGELOG.md) for full version history.
 
 A beautiful, fast new-tab replacement for Chrome and Firefox — organize bookmarks into folders and spaces, with a customizable clock, weather, themes, and productivity tools built in.
 
@@ -27,7 +27,7 @@ Try Pro free for 1 hour from any new tab — no payment required.
 
 - **One-click Import (Chrome & Firefox)** — upload your bookmark HTML file, done in seconds
 - **Spaces & Smart Folders** — unlimited spaces, drag & drop to reorder
-- **Live Clock & Weather** — 25+ languages, real-time conditions and city name
+- **Live Clock & Weather** — 25+ languages, real-time conditions and city name, on by default (Pro can toggle it off)
 - **Instant Bookmark Search** — press `/` to search, bookmark-only results
 - **Dark & Light Themes**
 - **Tags & Filter** — tag bookmarks (up to 2 per bookmark), click a chip to filter instantly
@@ -41,7 +41,8 @@ Try Pro free for 1 hour from any new tab — no payment required.
 - **Backup & Restore** — export/import as JSON, plus Chrome-compatible HTML
 - **Keyboard Shortcuts & Navigation** — `Ctrl+B` add, `Ctrl+N` new folder, `Ctrl+E` backup, `/` search, `Q` quick add, arrow-key navigation
 - **Visit Counter & Dates** — open count, last visited, date added
-- **Custom Background** — 2 changes/week, up to 6MB
+- **Custom Background** — 2 image changes/week, up to 6MB
+- **Taste Pro Backgrounds** — try Custom Colors/Gradients, Video Background, or Unsplash Backgrounds up to 2 times a month each, at no cost
 - **Smart Onboarding** — default template, import with auto-categorize, or start fresh
 - **Undo Delete** — 5-second undo toast
 - **Quick Add Current Tab** — press `Q` or click ➕
@@ -55,12 +56,32 @@ Try Pro free for 1 hour from any new tab — no payment required.
 - **Recently Visited** — collapsible section showing your last 8 opened bookmarks
 - **On This Day** — dismissible reminder when a bookmark was added exactly 1 year ago today
 - **What's New Indicator** — a dot on the Settings icon after an update, until you check the changelog
+- **Sort Spaces** — sort your spaces by Name (A→Z), Most Used, or Recently Added
+- **Drag Folder Between Spaces** — drag a folder card onto a space tab to move it there instantly
+- **Bookmark Import from URL** — paste a URL into Add Bookmark and its page title auto-fills the Name field
+- **Export a Single Space** — export just one space as JSON or Markdown instead of the whole workspace
+- **Bookmark Templates for New Spaces** — start a new space from a Work, Travel, Job Hunt, or Student template
+- **License Expiry Reminder** — a small dismissible corner reminder when your Monthly/Yearly plan is within 7 days of expiring, plus a clickable expiry chip in Settings → About
+- **Renew / Switch Plan Popup** — Renew / Check Status opens the same Monthly/Yearly/Lifetime pricing popup as new purchases, so you can switch plans with any live discount applied
+- **Save for Later** — right-click a bookmark to copy it into a dedicated Reading List space
+- **Snooze a Bookmark** — right-click → remind me tomorrow, in 3 days, or in a week
+- **Clock Seconds Toggle** — show or hide seconds on the clock independently
+- **Folder Icon from Favicon** — adopt a bookmark's favicon as a folder's icon, as an alternative to an emoji
+- **Shareable Space Link** — a read-only preview link for a single space
+- **Custom Keyboard Shortcuts** — reassign Search, Quick Add, Add Bookmark, New Folder, Export Backup, and Scratchpad to your own keys
+- **Bookmark Health Digest** — the weekly broken-link check and (for Pro) a top-visited highlight now arrive as one combined notification
+- **Google Drive Backup** — push a backup straight to your Google Drive in one click (JSON + HTML; Pro also gets Markdown)
+- **Curated 10 Background Gradients** — 10 hand-picked gradients above the usual 60, each with a guaranteed-readable text color
+- **Suggest a Feature** — send a title + description straight to the developer from Settings, free or Pro, no sign-up required
+- **Chrome Bookmarks Sync** — get notified in BTM when a bookmark is added directly in Chrome, and optionally mirror your BTM Spaces into a dedicated folder in Chrome's own bookmark manager (deletions and lock protection sync too), free for everyone
+- **Custom Space Emoji** — give each space tab its own emoji (plain or animated), same picker already used for folders
+- **Bulk Move to Folder** — bulk-select bookmarks and move them all to any folder across any space in one action
 
 ### ⭐ Pro — unlock the full experience
 
-- **50 Gradient Themes** — curated presets, custom color picker, gradient direction, solid color mode
-- **Video Background** — local MP4 up to 30s, optional sound
-- **Unsplash Backgrounds** — auto-load photos by category, changes every tab or daily
+- **50 Gradient Themes** — curated presets, custom color picker, gradient direction, solid color mode (free plan can taste custom colors/gradients 2x/month)
+- **Video Background** — local MP4 up to 30s, optional sound (free plan can taste this 2x/month)
+- **Unsplash Backgrounds** — auto-load photos by category, changes every tab or daily (free plan can taste this 2x/month)
 - **Save 5 Background Presets**
 - **Animated Particles** — circles, stars, hearts, snowflakes, dots — adjustable speed/density
 - **Full Color Control** — text, accent color, font family (Inter, Poppins, Roboto, Nunito, Mono)
@@ -75,6 +96,10 @@ Try Pro free for 1 hour from any new tab — no payment required.
 - **Unlimited Incognito** — no monthly cap
 - **Pomodoro Timer + Scratchpad** — 25/5/15 min focus timer, quick notes
 - **Multi-device Activation** — Monthly = 3 devices, Yearly = 5, Lifetime = unlimited
+- **Per-Space Background** — give each space its own background color or image
+- **Space Lock** — lock just one sensitive space with its own PIN, separate from Child Lock
+- **Bookmark Visit Goal** — set a weekly visit target on any bookmark, with a progress badge on the card
+- **Text Stroke/Outline** — a 1-5px outline + color for the header Title/Subtitle, and separately for folder titles
 
 ## Availability
 
