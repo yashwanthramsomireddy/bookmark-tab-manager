@@ -113,7 +113,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 24px;display:fl
 .step-connector{display:none;}
 
 /* ── PRICING ── */
-.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:48px;}
+.pricing-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:48px;}
+@media(min-width:640px){.pricing-grid{grid-template-columns:repeat(2,1fr);}}
+@media(min-width:900px){.pricing-grid{grid-template-columns:repeat(4,1fr);}}
 .price-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;position:relative;transition:all .15s;}
 .price-card:hover{border-color:var(--border-bright);transform:translateY(-2px);}
 .price-card.featured{border-color:rgba(245,158,11,0.4);background:linear-gradient(135deg,rgba(245,158,11,0.05),rgba(239,68,68,0.03));}
@@ -388,6 +390,156 @@ footer{border-top:1px solid var(--border);padding:32px 24px;display:flex;align-i
         <div class="feature-title">Drag to Reorder Spaces</div>
         <div class="feature-desc">Drag your space tabs to reorder them exactly how you want. Drop highlight shows where the space will land.</div>
       </div>
+      <div class="feature-card">
+        <div class="feature-icon">⬇️⬆️</div>
+        <div class="feature-title">Collapse All / Expand All</div>
+        <div class="feature-desc">One click to fold or unfold every folder in the active space — great for long spaces with many folders.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📋</div>
+        <div class="feature-title">Copy All Links in Folder</div>
+        <div class="feature-desc">Copy every bookmark URL in a folder to your clipboard as a plain list, ready to paste anywhere.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📝</div>
+        <div class="feature-title">Folder Notes</div>
+        <div class="feature-desc">Attach a short note or description to any folder — hover the 📝 icon to see it, click to edit.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔁</div>
+        <div class="feature-title">Duplicate Bookmark Detector</div>
+        <div class="feature-desc">Scans every space and folder for the same link saved more than once, so you can clean up duplicates fast.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🕐</div>
+        <div class="feature-title">Recently Visited</div>
+        <div class="feature-desc">A collapsible section showing your last 8 opened bookmarks, right where you can see it.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📆</div>
+        <div class="feature-title">On This Day</div>
+        <div class="feature-desc">A dismissible reminder pops up when a bookmark was added exactly 1 year ago today.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔵</div>
+        <div class="feature-title">What's New Indicator</div>
+        <div class="feature-desc">A dot appears on the Settings icon after every update, until you check the changelog.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔤</div>
+        <div class="feature-title">Sort Spaces</div>
+        <div class="feature-desc">Sort your spaces by Name (A→Z), Most Used, or Recently Added — whichever fits how you work.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📦</div>
+        <div class="feature-title">Drag Folder Between Spaces</div>
+        <div class="feature-desc">Drag a folder card directly onto a space tab to move it there instantly — no popup needed.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔗</div>
+        <div class="feature-title">Bookmark Import from URL</div>
+        <div class="feature-desc">Paste a URL into Add Bookmark and its page title auto-fills the Name field for you.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📤</div>
+        <div class="feature-title">Export a Single Space</div>
+        <div class="feature-desc">Export just one space as JSON or Markdown instead of exporting your whole workspace.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🧳</div>
+        <div class="feature-title">Bookmark Templates for New Spaces</div>
+        <div class="feature-desc">Start a new space from a ready-made Work, Travel, Job Hunt, or Student template.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⏰</div>
+        <div class="feature-title">License Expiry Reminder</div>
+        <div class="feature-desc">A small dismissible corner reminder when your Monthly/Yearly plan is within 7 days of expiring.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔄</div>
+        <div class="feature-title">Renew / Switch Plan Popup</div>
+        <div class="feature-desc">Renew or Check Status opens the same pricing popup as new purchases, so you can switch plans anytime.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📖</div>
+        <div class="feature-title">Save for Later</div>
+        <div class="feature-desc">Right-click any bookmark to copy it into a dedicated Reading List space for later.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">😴</div>
+        <div class="feature-title">Snooze a Bookmark</div>
+        <div class="feature-desc">Right-click → remind me tomorrow, in 3 days, or in a week — it resurfaces exactly when you asked.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⏱️</div>
+        <div class="feature-title">Clock Seconds Toggle</div>
+        <div class="feature-desc">Show or hide seconds on the clock independently of every other clock setting.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🖼️</div>
+        <div class="feature-title">Folder Icon from Favicon</div>
+        <div class="feature-desc">Adopt a bookmark's favicon as a folder's icon — an alternative to picking an emoji.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔗</div>
+        <div class="feature-title">Shareable Space Link</div>
+        <div class="feature-desc">Generate a read-only preview link for a single space to share with anyone.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⌨️</div>
+        <div class="feature-title">Custom Keyboard Shortcuts</div>
+        <div class="feature-desc">Reassign Search, Quick Add, Add Bookmark, New Folder, Export Backup, and Scratchpad to your own keys.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📩</div>
+        <div class="feature-title">Bookmark Health Digest</div>
+        <div class="feature-desc">The weekly broken-link check and (for Pro) a top-visited highlight now arrive as one combined notification.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">☁️</div>
+        <div class="feature-title">Google Drive Backup</div>
+        <div class="feature-desc">Push a backup straight to your own Google Drive in one click — JSON + HTML free, Markdown too on Pro.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌈</div>
+        <div class="feature-title">Curated Background Gradients</div>
+        <div class="feature-desc">10 hand-picked gradients above the usual 60, each with a guaranteed-readable text color.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💡</div>
+        <div class="feature-title">Suggest a Feature</div>
+        <div class="feature-desc">Send a title + description straight to the developer from Settings — free or Pro, no sign-up required.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔗</div>
+        <div class="feature-title">Chrome Bookmarks Sync</div>
+        <div class="feature-desc">Get notified in BTM when a bookmark is added directly in Chrome, and optionally mirror your Spaces into Chrome's own bookmark manager.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">😀</div>
+        <div class="feature-title">Custom Space Emoji</div>
+        <div class="feature-desc">Give each space tab its own emoji, plain or animated — the same picker already used for folders.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📦</div>
+        <div class="feature-title">Bulk Move to Folder</div>
+        <div class="feature-desc">Bulk-select bookmarks and move them all to any folder across any space, in one action.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">➕</div>
+        <div class="feature-title">Add Bookmark via Folder Menu</div>
+        <div class="feature-desc">A new "+ Add bookmark" option sits right in every folder's ⋮ menu — a faster way in than scrolling to the bottom.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📥</div>
+        <div class="feature-title">Save All Open Tabs as a Space</div>
+        <div class="feature-desc">One click in the toolbar popup (or "+ New Space") captures every open tab into a brand-new space, instantly.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📂</div>
+        <div class="feature-title">Nested Folder Import</div>
+        <div class="feature-desc">Importing a Chrome/Firefox bookmark HTML file rebuilds your real nested folder structure as true BTM sub-folders (up to 5 levels) when you're on Pro, instead of flattening everything.</div>
+      </div>
     </div>
   </div>
 
@@ -435,7 +587,27 @@ footer{border-top:1px solid var(--border);padding:32px 24px;display:flex;align-i
       <div class="feature-card pro-card">
         <div class="feature-icon">🔒</div>
         <div class="feature-title">Child Lock & PIN <span class="pro-tag">Pro</span></div>
-        <div class="feature-desc">Set a master PIN to lock all bookmarks and settings. Auto-lock after 1/5/10/30/60 minutes of inactivity.</div>
+        <div class="feature-desc">Set a master PIN to lock all bookmarks and settings. Auto-lock after 1/5/10/30/60 minutes of inactivity. Forgot it? A one-time reset code emails to your registered address.</div>
+      </div>
+      <div class="feature-card pro-card">
+        <div class="feature-icon">🌌</div>
+        <div class="feature-title">Per-space Background <span class="pro-tag">Pro</span></div>
+        <div class="feature-desc">Give each space its own background color or image — Work looks different from Personal, automatically.</div>
+      </div>
+      <div class="feature-card pro-card">
+        <div class="feature-icon">🔐</div>
+        <div class="feature-title">Space Lock <span class="pro-tag">Pro</span></div>
+        <div class="feature-desc">Lock just one sensitive space with its own PIN, completely separate from Child Lock.</div>
+      </div>
+      <div class="feature-card pro-card">
+        <div class="feature-icon">🎯</div>
+        <div class="feature-title">Bookmark Visit Goal <span class="pro-tag">Pro</span></div>
+        <div class="feature-desc">Set a weekly visit target on any bookmark, with a progress badge right on the card.</div>
+      </div>
+      <div class="feature-card pro-card">
+        <div class="feature-icon">🔤</div>
+        <div class="feature-title">Text Stroke / Outline <span class="pro-tag">Pro</span></div>
+        <div class="feature-desc">A 1–5px outline and color for the header Title/Subtitle, and separately for folder titles.</div>
       </div>
       <div class="feature-card pro-card">
         <div class="feature-icon">🤖</div>
@@ -476,6 +648,16 @@ footer{border-top:1px solid var(--border);padding:32px 24px;display:flex;align-i
         <div class="feature-icon">⏱️</div>
         <div class="feature-title">Pomodoro Timer + Scratchpad <span class="pro-tag">Pro</span></div>
         <div class="feature-desc">Built-in 25/5/15 min focus timer and a quick notes scratchpad — everything you need to stay productive.</div>
+      </div>
+      <div class="feature-card pro-card">
+        <div class="feature-icon">➖</div>
+        <div class="feature-title">Bookmark Groups <span class="pro-tag">Pro</span></div>
+        <div class="feature-desc">Colored divider labels inside any folder to informally section your bookmarks — drag to reposition like any bookmark.</div>
+      </div>
+      <div class="feature-card pro-card">
+        <div class="feature-icon">↳</div>
+        <div class="feature-title">Sub-folder Nesting <span class="pro-tag">Pro</span></div>
+        <div class="feature-desc">Nest a folder inside another folder, up to 5 levels deep — sub-folder nesting is Pro-exclusive at every level, including the first. Plus a Sub-folder Migration tool to split a large flat folder into sub-folders with a checkbox picker. Folders with lots of sub-folders start collapsed to stay tidy — hover a dragged bookmark over one to auto-expand it and drop right in.</div>
       </div>
     </div>
   </div>
@@ -636,6 +818,10 @@ footer{border-top:1px solid var(--border);padding:32px 24px;display:flex;align-i
       <div class="faq-a">No. BTM works alongside your browser's native bookmarks on both <strong>Chrome and Firefox</strong>. You can import your existing bookmarks into BTM with one click, but originals remain untouched. You can also export BTM bookmarks back to standard HTML format anytime.</div>
     </div>
     <div class="faq-item">
+      <div class="faq-q">Does BTM support sub-folders / nested folders?</div>
+      <div class="faq-a">Yes. Nest a folder inside another folder, up to 5 levels deep, using "Add sub-folder" or "Move into folder…" from any eligible folder's ⋮ menu, plus a Sub-folder Migration tool to split a large flat folder into sub-folders with a checkbox picker. Sub-folder nesting is Pro-exclusive at every level, including the first — free plans can't create a sub-folder and need to upgrade. If you built a nested structure while Pro was active, it's kept exactly as-is even if your Pro plan later lapses; you just can't create new sub-folders (or re-import a nested structure) until you renew. When you import a Chrome or Firefox bookmark HTML file, any nested folders you already have are automatically rebuilt as true BTM sub-folders (up to 5 levels) if you're Pro — on the Free plan, imported nesting is flattened to top-level folders instead. A parent with 4 or more sub-folders starts collapsed so the card doesn't get too tall — one click opens any of them, or hover a dragged bookmark over one to auto-expand and drop it in.</div>
+    </div>
+    <div class="faq-item">
       <div class="faq-q">What payment methods are supported?</div>
       <div class="faq-a">We use Razorpay — India's leading payment gateway. Accepted: UPI (Google Pay, PhonePe, Paytm, BHIM), all Debit/Credit cards (Visa, Mastercard, RuPay), Net Banking and more. Payments are in INR (₹).</div>
     </div>
@@ -658,11 +844,6 @@ footer{border-top:1px solid var(--border);padding:32px 24px;display:flex;align-i
         <br>2. <strong>Import My Browser Bookmarks</strong> — reads your existing Chrome or Firefox bookmarks and imports them. Choose Auto-Categorize (sorts into Work, Tech, Travel, Shopping etc.) or Import All to Home (everything in one space).
         <br>3. <strong>Start Fresh</strong> — blank workspace, build from scratch.
         <br><br>You can also re-import anytime using Settings → Import (HTML or JSON).</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">How are my Chrome/Firefox sub-folders handled during import?</div>
-      <div class="faq-a">BTM preserves your sub-folder hierarchy during import using a clear naming format. For example, if you have a folder "Work" containing a sub-folder "Project A", it imports as two folders: <strong>"Work"</strong> (with direct bookmarks) and <strong>"Work / Project A"</strong> (with Project A's bookmarks). No bookmarks are lost — the hierarchy is visible through the folder names. True nested sub-folders inside BTM are planned for a future version.</div>
     </div>
 
     <div class="faq-item">
@@ -690,6 +871,18 @@ footer{border-top:1px solid var(--border);padding:32px 24px;display:flex;align-i
       <div class="faq-a">Privacy Blur has two modes. <strong>All spaces, all folders</strong> keeps everything permanently blurred with no reveal — maximum protection. <strong>Hover to reveal</strong> (the default) blurs every folder automatically and only unblurs the one you're hovering your mouse over, re-blurring the moment you move away.<br><br>💡 <strong>Screen-sharing tip:</strong> Hover to reveal is perfect for calls and screen shares. Keep the links you'll actually need at the start of any space, in the first 1–2 folders. Once you're sharing your screen, hover over just those folders to reveal and open them — every other folder stays blurred, so nothing else is ever exposed to viewers. Switch modes anytime in Settings → Notifications & Privacy.</div>
     </div>
 
+    <div class="faq-item">
+      <div class="faq-q">How do I back up my bookmarks to Google Drive?</div>
+      <div class="faq-a">Go to Settings → Import & Backup → ☁️ Backup to Google Drive and sign in with your Google account when prompted (first time only). Each click pushes a fresh backup into a "Bookmark Tab Manager Backups" folder in your own Drive, organized by date and browser (Chrome and Firefox stay separate). Free plans get a JSON + HTML file each time; Pro also gets a Markdown file. <strong>Free plans get 1 Drive backup per month — Pro gets unlimited backups while your plan is active</strong> (a lapsed Monthly/Yearly plan drops back to the 1/month free allowance until renewed). It's a manual, on-demand snapshot — you can also turn on an Auto-backup reminder (Weekly/Fortnightly/Monthly) that gently nudges you if you haven't backed up in a while. This uses Google's narrowest Drive permission (<code>drive.file</code>) — BTM can only see the files/folders it creates itself, never the rest of your Drive.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What's the difference between Google Drive Backup and Chrome Bookmarks Sync?</div>
+      <div class="faq-a">They solve two different problems and work fine together. <strong>☁️ Google Drive Backup</strong> makes a snapshot file and uploads it to your own Google Drive — think of it as a save file, great for moving to a new device or recovering from a mistake. It only happens when you click the button. <strong>🔗 Chrome Bookmarks Sync</strong> is a live, two-way mirror between BTM and Chrome's own native Bookmarks on the same device — it notifies you when you add a bookmark directly in Chrome, and can optionally mirror your BTM Spaces into Chrome's own Bookmarks Manager. It has nothing to do with Google Drive or the cloud, and Firefox has no equivalent native-mirror feature.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Does TeamExyKings have other projects?</div>
+      <div class="faq-a">Yes — visit <a href="https://teamexykings.in/" target="_blank" rel="noopener" style="color:var(--green);">teamexykings.in</a> to see our other open-source and legacy projects beyond Bookmark Tab Manager. It's also where you'll find the latest news from the team.</div>
+    </div>
     <div class="faq-item">
       <div class="faq-q">Do you ever offer discounts on Pro plans?</div>
       <div class="faq-a">Yes! We run limited-time festival discounts of up to 99% off Monthly, Yearly, and Lifetime plans throughout the year. When an offer is live, you'll see a scrolling banner right inside the app next to the settings icon, along with the discounted price shown directly in the Upgrade screen. Join our <a href="https://chat.whatsapp.com/BpZgK3DRcIqA2R9RDn7qBX" target="_blank" style="color:#25d366;font-weight:600;">WhatsApp Community</a> or <a href="https://t.me/BookmarkTabManager" target="_blank" style="color:#2aabee;font-weight:600;">Telegram Community</a> to be the first to know when a new discount goes live — offers are only available while the sale lasts.</div>

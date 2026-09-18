@@ -2,7 +2,115 @@
 
 All notable changes to Bookmark Tab Manager.
 
-## v1.24.5 — September 2026 (Latest)
+## v2.3.5 — September 2026 (Latest, website copy fix Sep 18)
+
+- **Fix (Website):** 📝 Removed a stale, contradictory FAQ entry ("How are my Chrome/Firefox sub-folders handled during import?") on the website that still described the old pre-nesting "Work / Project A" name-flattening behavior and said "True nested sub-folders inside BTM are planned for a future version" — directly contradicting the correct, up-to-date FAQ answer right above it about the current 5-level Pro-only nesting. Caught right before a store release.
+
+- **Fix (Admin):** 📊 Fixed the new Admin Dashboard OTP login popup (`#adminOtpPopup`, added in v2.3.4) opening invisibly underneath the Admin Dashboard itself. The dashboard's own popup (`#adminPopup`) has an id-specific `z-index:9998`, far above the shared `.modal-overlay` class's `z-index:100` that the new OTP popup used — so when the OTP flow triggered from inside the already-open dashboard, it technically opened (the `.open` class was added correctly) but rendered completely behind the dashboard, unclickable. This also explains why no email arrived: the "Send code to my email" button lives inside that hidden popup, so the request to actually send the code was never triggered. Fixed with the same override already used for `#forgotPinPopup` for an identical reason — `#adminOtpPopup{z-index:9999;}` — so it now renders on top of the dashboard.
+- **UI (Free):** 🧹 Shortened every in-app changelog entry from v2.2.1 through v2.3.4 down to a single plain-language line each, since the full technical root-cause writeups (kept below, unchanged) were originally written for this file but were also being displayed verbatim in the app's own "What's New" popup — several paragraphs long per item. The in-app popup now shows short one-liners; this file remains the detailed technical record.
+
+## v2.3.4 — September 2026
+
+- **Fix (Admin):** 📊 Fixed the Admin Dashboard's email login code failing to appear, with a console warning that a `window.prompt()` dialog "was suppressed because this page is not the active tab of the front window." The OTP flow requested the emailed code with an `await fetch(...)` call, then immediately called the native `window.prompt()` to collect it — Chrome suppresses `window.prompt()`/`alert()`/`confirm()` whenever they fire from a background tab, or after enough async delay since the last click that it no longer counts as a direct response to a user gesture, which is exactly what a "request a code by email, then get prompted for it" flow runs into. Replaced it with a proper in-page popup (a small two-step modal, mirroring the existing "Forgot PIN" flow's design) that has no such restriction — same behavior otherwise: request the code, enter it, unlock the dashboard for 2 hours.
+
+## v2.3.3 — September 2026
+
+- **Fix (Free):** 👁️ Fixed the Cancel button on the delete-folder "Are you sure?" popup being nearly invisible — it used a muted gray text color on a near-transparent background that could blend into the popup depending on theme, so it read as blank. Gave it the same visual treatment as the red Delete button next to it (a solid tinted background + border), just in a neutral white shade instead of red, so it's clearly readable in every theme.
+
+## v2.3.2 — September 2026
+
+- **Fix (Free):** 📜 Really fixed sub-folder scrolling — a real Chrome bookmarks import + manual drag-nesting test showed folders getting visibly cut off mid-row (a favicon/name chopped in half) with no scrollbar in sight, specifically when several sub-folder rows were stacked one under another. Root cause: each sub-folder card is a flex *item* inside its parent's `.subfolder-wrap` (`display:flex;flex-direction:column`), and every `.cat-card` (including sub-folder cards) sets `overflow:hidden` for its own blur effect. Per the CSS Flexbox spec, an element with `overflow` other than `visible` counts as a "scroll container", and a flex item that's a scroll container gets an *automatic minimum main-size of 0* instead of one based on its content — so when several stacked sub-folder rows didn't all fit under the wrap's height cap, the browser's flex-shrink math was actually allowed to squeeze these cards smaller than their real content (clipped by their own `overflow:hidden`) instead of leaving them full-size and letting the wrap's `overflow-y:auto` take over and scroll. This is a *different* mechanism from the backdrop-filter compositing quirk that v2.2.3/v2.3.0/v2.3.1's `contain:paint` fixes correctly addressed — which is why those earlier rounds never fully closed this out. Fixed by adding `flex-shrink:0` to `.cat-card.subfolder-card`, so a sub-folder row can never be compressed below its true height; once a stack of them genuinely exceeds the cap, the wrap itself overflows and scrolls as intended. Verified with a real WebKit render, before and after, reproducing the exact "one folder shows fully, the next one is chopped off" symptom and confirming the fix.
+- **UI (Free):** 📏 Sub-folder scroll height reduced from ~15 visible bookmark rows (360px) down to 5 rows (120px) — applies consistently to both a sub-folder's own bookmark list and the stack of sibling sub-folders inside a parent, per request.
+- **Fix (Free):** 🗑️ Delete-folder confirmation ("Are you sure?", shown for both a top-level folder's own 🗑️ Delete and a sub-folder row's ✕ delete when it has nested sub-folders under it) now closes if you click anywhere on the dark background outside the popup box, matching every other popup in the app. It already had a labeled Cancel button that safely closes it without deleting anything — the missing piece was specifically the click-outside-to-dismiss, since this one popup hadn't been wired up to the same outside-click pattern (`el.onclick=e=>{if(e.target===el)…}`) the rest of the app's popups already use.
+
+## v2.3.1 — September 2026
+
+- **Fix (Free):** 🖱️ Fixed drag-and-drop folder nesting: dragging a whole top-level folder (with its nested sub-folder chain along for the ride) and dropping it onto a *different* top-level folder now actually nests it there. Root cause: the drop handler in `setupCardDrag()` (`actions.js`) only ever did a flat array reorder (splice the dragged category out, splice it back in at the target's index) — it never touched `parentId`, so "convert to sub-folder via drag" was never actually wired up as a drop target; the only real path to nesting was the "Move into folder…" menu action. A folder card dropped onto a different, eligible folder card now calls `convertToSubfolder()` — the same function the menu action uses — gated by the same 5-level depth cap, Pro-at-every-level rule, and self/descendant cycle guard. Hold Shift while dropping for the old plain-reorder behavior.
+- **Fix (Free):** 📁 Fixed the depth cap appearing not to hold (a test screenshot showed nesting reaching level 11). The 5-level cap itself was correctly enforced everywhere it's checked — the real bug was in `eligibleParentFolders()`, behind the "Move into folder…" picker: it only checked the *candidate parent's* own depth, never how deep the folder actually being moved would land once its own existing sub-folder chain came along too. The picker could therefore offer a target that `convertToSubfolder()` would then silently reject, with only a fading 3.5s toast as feedback — leading straight into building a second, independent nesting chain (via a fresh top-level folder) that visually read as a continuation past depth 5. Fixed the picker to use the exact same depth-plus-subtree math as `convertToSubfolder()`, and replaced the fading toast with a persistent `alert()` explaining exactly why a move was rejected.
+- **Fix (Free):** 👁️ Fixed manually-added deep sub-folders being unreachable ("3 sub-folders inside a sub-folder, no way to see or add to them"). Recursive rendering itself has no depth limit and always drew every level correctly — the actual gap was that "Add sub-folder" only ever appeared in a top-level folder's own ⋮ menu, and always attached a new folder as *that top-level folder's* own direct child; a sub-folder card had no menu at all (removed entirely in v2.2.0), so there was no way to add a new child directly under an already-nested folder. Added a minimal "＋" icon directly on sub-folder rows, wired to `addSubfolder()` with that card's own id (not a top-level ancestor's), so every level 1-5 is directly reachable and extendable.
+- **UI (Free):** 🎨 Fixed sub-folder rows still stair-stepping deeper the more they were nested, despite v2.2.2's attempted fix. v2.2.2 zeroed the nested `.subfolder-wrap`'s own left *margin*, but each sub-folder card is a real DOM child recursively wrapped inside its parent's own `.cat-card` box, and `.cat-card.subfolder-card` carries its own fixed 4px left *padding* at every level — that per-level padding kept compounding regardless of the wrap's margin. Fixed with a matching `-4px` left margin on every nested wrap that exactly cancels one ancestor's padding per level, so depth 1 through depth 5 rows all sit at the identical horizontal position now.
+- **UI (Free):** 📜 Replaced the arbitrary 220px/260px scroll-height guesses with a height computed from the actual rendered row size: a `.bm-item` row is 24px tall (5px+5px padding around a 14px favicon), so both a sub-folder's own bookmark list and the list of sibling sub-folders now cap at 360px — roughly 15 rows visible before scrolling, consistently at every level.
+- **Fix (Free):** 🗑️ Sub-folders can be deleted again: brought back a single minimal ✕ delete icon on sub-folder rows (not the full ⋮ menu) — v2.2.0 removed sub-folder rows' entire action row, including any way to delete one directly.
+- **Fix (Free):** 🌳 Deleting a parent folder now deletes its entire sub-folder tree with it, instead of promoting its children to top-level. Rewrote `deleteCategory()` to recursively collect every descendant category at any depth and remove them all together with the parent (bookmarks included, no promotion), with a confirmation showing exactly how many sub-folders and total bookmarks will be deleted, full metadata cleanup for every deleted id, and full undo support restoring the whole subtree. The new sub-folder ✕ delete button uses this same cascading path.
+
+## v2.3.0 — September 2026
+
+- **Fix (Free):** 🖱️ Really fixed drag-and-drop of sub-folders — the v2.2.3 "fix" broke it completely instead. Root cause: v2.2.3 added `e.stopPropagation()` to `setupCardDrag()`'s `dragstart`/`dragend` handlers to stop a nested sub-folder's `dragstart` bubbling into its parent card's own listener (which was overwriting the shared `dragCat` global with the parent's id). But calling `stopPropagation()` inside a native `dragstart` handler doesn't just stop DOM bubbling — it interrupts the browser's own internal bookkeeping for that drag session whenever other listeners for the same event type exist further up the same element chain, which is always true here since every ancestor card wires its own `dragstart`/`dragend` via `setupCardDrag()`. The drag session was getting silently aborted right after starting, so `dragover`/`drop` never fired again for ANY card — total breakage, not just wrong targeting. Fixed properly: removed `stopPropagation()` from `dragstart`/`dragend` entirely and replaced it with an identity check (`if(e.target!==card)return;`) so only the listener belonging to the actual card that was grabbed acts on the event, with zero interference with the native drag session. Dragging a leaf or nested sub-folder now works again and only ever affects that one specific folder.
+- **Fix (Free):** 📜 Really fixed the missing scrollbar on a sub-folder with 10+ of its own bookmarks — the v2.2.3 fix targeted the wrong element. `contain:paint` on `.subfolder-wrap-scroll` only bounds height for the list of *sibling* sub-folders inside a parent, which was already working; a single sub-folder's own bookmark list lives in that sub-folder's own `.cat-body`, which had no height cap or overflow rule at all, so a long list just grew past the wrap's 260px instead of being clipped. Added `max-height:220px;overflow-y:auto` directly on `.cat-card.subfolder-card .cat-body` in `newtab.html`, so each sub-folder's own expanded bookmark list scrolls independently. `contain:paint` is kept on the outer wrap since it's still relevant for the many-siblings case.
+- **New (Pro):** 📁 Max sub-folder nesting depth raised from 3 to 5 levels — real-world usage of the redesigned flat-row sub-folder UI showed it comfortably handles deeper structures, and fewer than 0.1% of users would even reach it.
+- **Changed (Pro):** 🔒 Sub-folder nesting is now Pro-only at every level. Previously the first level of nesting was free for everyone and only levels 2-3 required Pro; free plans can no longer create ANY sub-folder — even one level requires Pro. Applies to "Add sub-folder", "Move into folder…", "Split into sub-folder", dragging into a new parent, and every import path (HTML file import, Settings → Chrome Bookmarks Sync, first-run onboarding import, and the Import Folder widget).
+- **New (Free):** 🛡️ Existing sub-folder structures are preserved even if your Pro plan lapses — nothing at app load or render time checks your plan against existing folders, so a structure built while Pro stays exactly as it is. The Pro gate only runs at the moment of a new action. A fresh import with nested folders on a non-Pro plan now demotes ALL nesting to flat top-level folders (not just levels 2+), with a popup explaining why.
+- **New (Free):** ❓ FAQ updated to reflect the 5-level depth cap and the Pro-only-at-every-level nesting rule.
+
+## v2.2.3 — September 2026
+
+- **Fix (Free):** 📜 Fixed the v2.2.0 internal sub-folder scroll container: expanding a top-level folder's sub-folder to reveal its own long bookmark list overflowed straight out of the card with no visible scrollbar. Root cause: `.cat-card` uses `backdrop-filter` for the card-blur effect, and Chromium/WebKit have a known compositing quirk where an `overflow:auto` box nested inside a `backdrop-filter`/`filter` ancestor stops actually clipping its painted content (`scrollHeight`/`scrollTop` still worked, the clip just never rendered on screen). Added `contain:paint` (plus `overflow-x:hidden`) to `.subfolder-wrap-scroll` in `newtab.html` so it establishes its own paint/clip boundary independent of the ancestor's filter, making the 260px scroll area — and its scrollbar — actually work whether many sub-folders or one sub-folder's own long bookmark list is what's overflowing.
+- **Fix (Free):** 🖱️ Fixed drag-and-drop moving a whole sub-folder subtree even when only the deepest/leaf sub-folder was dragged. Root cause: every card (top-level AND sub-folder) wires `setupCardDrag()` to itself, and a sub-folder card is nested inside its parent's own `.cat-card` — HTML5 `dragstart`/`dragend` events bubble, so dragging a nested sub-folder fired its own `dragstart` (correctly setting the shared `dragCat` to the child's id) and then bubbled straight into the PARENT card's own `dragstart` listener, which unconditionally overwrote `dragCat`/`dragCatFromSpace` with the PARENT's id — so the drop always acted on the outermost ancestor (and everything still pointing at it via `parentId`) instead of the one sub-folder actually grabbed. Added `e.stopPropagation()` to `setupCardDrag()`'s `dragstart`/`dragend` handlers in `actions.js` (matching the `dragover`/`drop` handlers, which already had it) so a nested card's drag events stop at that card instead of re-triggering its ancestors' handlers.
+
+## v2.2.2 — September 2026
+
+- **Fix (Free):** 🔧 Fixed a 4th separate flat-import bug, found via A/B testing: the first-run onboarding modal's "📥 Import My Browser Bookmarks" flow (`onboarding.js` — `extractBrowserBookmarks()` / `performImport()`) had its own independent importer that flattened every nested Chrome/Firefox folder into a "Parent / Child / Grandchild"-named top-level folder — a bug distinct from (and found after) the already-fixed HTML-file import (`importChromeHTML()` in `actions.js`) and the Settings "🌐 Import Chrome bookmarks" button (`syncChromeBookmarks()` + `settings.js`). Rebuilt `extractBrowserBookmarks()` to keep each folder's real native children instead of collapsing them into name strings, and `performImport()` now reconstructs true `parentId`-based nesting up to depth 3 (flattening anything deeper into name-joined siblings, demoting Level 2/3 sub-folders to top-level with the same warning popup when the plan isn't Pro) — matching the other two import paths, for both "Import All to Home" and "Auto-Categorize" onboarding modes.
+- **UI (Free):** 🎨 Sub-folder rows are now left-aligned at one fixed position regardless of nesting depth — removed the per-level `marginLeft` "staircase" indent in `render.js` so depth 1/2/3 sub-folders no longer creep further right, giving a flat list look instead of a tree. Collapse/expand is unchanged.
+
+## v2.2.1 — September 2026
+
+- **Fix (Free):** 🔧 Fixed a v2.2.0 regression where a locked+pinned sub-folder rendered as its own separate top-level folder instead of nesting inside its parent. Root cause: `buildCard()`'s locked-folder branch ended with `grid.appendChild(card); return;` instead of `return card;` — `grid` isn't even in scope inside `buildCard()`, and for a recursively-built sub-folder card this forced it straight into the top-level grid while returning `undefined` to the parent's sub-folder loop, which could also break rendering of that folder's remaining children. Now correctly `return card;`s so it's appended into its parent's sub-folder wrapper like every other sub-folder.
+
+## v2.2.0 — September 2026
+
+- **New (Free):** 🎨 Sub-folder visual redesign: nested folders no longer render as heavy stacked boxes with growing indent — they're now slim, integrated rows inside their parent folder, with just a title, bookmark count and the same expand/collapse arrow as before
+- **Removed (Free):** 🧹 Sub-folder rows no longer show a ⋮ menu at all, and the "Sub-folder settings icons" toggle (added in v2.1.2) is removed entirely since it's no longer needed — every folder action stays available from the top-level ancestor's own menu
+- **New (Free):** 📜 A folder with many or deeply nested sub-folders now scrolls internally instead of stretching the whole grid card
+- **New (Free):** 📤 Share folder now recursively bundles a folder's own sub-folders (any depth) into the exported JSON, and importing that file rebuilds the same nested structure — respecting the usual depth-3 cap and Pro gating for 2-3 level nesting
+- **Verified:** 🔄 Chrome Bookmarks Sync still mirrors sub-folders into the browser nested the same way they appear in BTM — unaffected by this visual redesign
+
+## v2.1.3 — September 2026
+
+- **Fix (Free):** 🔧 Fixed the real bug behind sub-folders showing as separate top-level folders: the "🌐 Import Chrome bookmarks" button (Settings) and the Firefox import button were each running their own older, flat, non-nested importer instead of the fixed one — both now rebuild real nesting up to 3 levels, same as Settings → Import & Backup
+
+## v2.1.2 — September 2026
+
+- **New (Free):** 🎨 Sub-folders now inherit their parent folder's own bg color/image/border color/font color by default — set your own color directly on a sub-folder any time to override it
+- **New (Free):** ⚙️ New Settings → Bookmark Display toggle: "Sub-folder settings icons" — turn off to hide the ⋮ menu on nested sub-folder cards specifically, for a cleaner look (top-level folders are unaffected)
+
+## v2.1.1 — September 2026
+
+- **Fix (Free):** 🔒 Chrome/Firefox HTML import now correctly demotes Level 2/3 sub-folders to regular top-level folders when your Pro plan isn't active (including a lapsed Monthly/Yearly renewal) — with a popup explaining why, since Level 2/3 nesting is Pro-only everywhere else in the app too. Level 1 sub-folders still import nested, free for everyone
+- **New (Free):** 🔄 Chrome Bookmarks Sync now mirrors sub-folders into Chrome/Firefox nested the same way they appear in BTM, instead of flattening every sub-folder into a sibling folder
+- **UI (Pro):** 🎨 The Sub-folder Migration ("Split into sub-folder") popup now picks up that folder's own custom colors when set, instead of always showing the same fixed dark theme
+
+## v2.1.0 — September 2026
+
+- **New (Free):** ↳ Level-1 sub-folders (a sub-folder inside a top-level folder) are now FREE for everyone — no Pro required for that first level of nesting
+- **New (Pro):** 📁 Sub-folder nesting extended to 3 levels deep (4 tiers total) — Levels 2 and 3 are Pro-exclusive, via "Add sub-folder"/"Move into folder…"/"Split into sub-folder" in any eligible folder's ⋮ menu
+- **New (Free):** 📂 Chrome/Firefox HTML import now preserves up to 3 levels of your real nested folder structure (previously capped at 1 level before flattening the rest into named sibling sub-folders)
+
+## v2.0.1 — September 2026
+
+- **New (Pro):** 📁 Sub-folders with lots of children (4+) now start collapsed instead of stretching the whole folder card tall — one click still opens any of them
+- **New (Pro):** 🖱️ Drag a bookmark over a collapsed sub-folder for a moment and it auto-expands, so you can drop straight into it without clicking to open it first
+- **New (Free):** ✅ Bulk mode now auto-opens every sub-folder while it's on, so you can select and move bookmarks nested inside them — closes back to however you left it once Bulk mode is off
+
+## v2.0.0 — September 2026
+
+- **New (Pro):** ↳ True Sub-folders — nest a folder inside another folder (up to 2 levels), via "Add sub-folder" or "Move into folder…" in any folder's ⋮ menu; deleting a parent folder promotes its sub-folders back to top-level without touching their bookmarks
+- **New (Pro):** 🪓 Sub-folder Migration — split a large flat folder into sub-folders with a checkbox picker, straight from that folder's ⋮ menu
+- **New (Free):** 📂 Chrome/Firefox HTML import now rebuilds your real nested folder structure as true BTM sub-folders (previously flattened every sub-folder into a separate "Parent › Child" top-level folder)
+
+## v1.25.0 — September 2026
+
+- **New (Free):** 📥 Save All Open Tabs as a Space — one click in the toolbar popup (or "+ New Space" → Save All Open Tabs) captures every open tab into a brand-new space
+- **New (Pro):** ➖ Bookmark Groups — add colored divider labels inside any folder to informally section your bookmarks, without needing a full sub-folder
+
+## v1.24.7 — September 2026
+
+- **New (Free):** ☁️ Google Drive Backup is now 1 backup/month on the Free plan — Pro plans get unlimited backups for as long as your plan is active (a lapsed Monthly/Yearly plan reverts to the 1/month free allowance until renewed)
+
+## v1.24.6 — September 2026
+
+- **New (Free):** ➕ Added an "Add bookmark" option directly to every folder's ⋮ menu — a faster way in than scrolling to the bottom of a long folder
+
+## v1.24.5 — September 2026
 
 - **Fix:** Toolbar popup — the title, "BTM Active" checkmark, and Open New Tab button were still green from the old logo; recolored to match the amber/orange rebrand
 - **Fix:** Incognito/Private browsing workaround — wording now matches exactly between the extension's own FAQ and the teamexykings.in website FAQ

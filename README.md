@@ -1,6 +1,6 @@
 # Bookmark Tab Manager
 
-**Current version:** — see [CHANGELOG.md](./CHANGELOG.md) for full version history.
+**Current version:** see [CHANGELOG.md](./CHANGELOG.md) for full version history.
 
 A beautiful, fast new-tab replacement for Chrome and Firefox — organize bookmarks into folders and spaces, with a customizable clock, weather, themes, and productivity tools built in.
 
@@ -25,7 +25,7 @@ Try Pro free for 1 hour from any new tab — no payment required.
 
 ### ✅ Free — always
 
-- **One-click Import (Chrome & Firefox)** — upload your bookmark HTML file, done in seconds
+- **One-click Import (Chrome & Firefox)** — upload your bookmark HTML file, done in seconds; nested folders import as real BTM sub-folders (up to 5 levels, Pro required to keep any nesting)
 - **Spaces & Smart Folders** — unlimited spaces, drag & drop to reorder
 - **Live Clock & Weather** — 25+ languages, real-time conditions and city name, on by default (Pro can toggle it off)
 - **Instant Bookmark Search** — press `/` to search, bookmark-only results
@@ -37,7 +37,7 @@ Try Pro free for 1 hour from any new tab — no payment required.
 - **Broken Link Checker** — scan up to 50 bookmarks per click
 - **Weekly Broken Link Scan** — automatic background scan with notification
 - **Folder Emoji Picker** — 200+ emojis, 100+ animated (2 animated folders/month free)
-- **Bulk Select & Delete** — plus bulk tag add/remove and drag-to-select a group of bookmarks
+- **Bulk Select & Delete** — plus bulk tag add/remove and drag-to-select a group of bookmarks; auto-opens sub-folders while Bulk mode is on
 - **Backup & Restore** — export/import as JSON, plus Chrome-compatible HTML
 - **Keyboard Shortcuts & Navigation** — `Ctrl+B` add, `Ctrl+N` new folder, `Ctrl+E` backup, `/` search, `Q` quick add, arrow-key navigation
 - **Visit Counter & Dates** — open count, last visited, date added
@@ -70,12 +70,14 @@ Try Pro free for 1 hour from any new tab — no payment required.
 - **Shareable Space Link** — a read-only preview link for a single space
 - **Custom Keyboard Shortcuts** — reassign Search, Quick Add, Add Bookmark, New Folder, Export Backup, and Scratchpad to your own keys
 - **Bookmark Health Digest** — the weekly broken-link check and (for Pro) a top-visited highlight now arrive as one combined notification
-- **Google Drive Backup** — push a backup straight to your Google Drive in one click (JSON + HTML; Pro also gets Markdown)
+- **Google Drive Backup** — push a backup straight to your Google Drive in one click (JSON + HTML free, 1/month; Pro gets unlimited backups + Markdown while your plan is active)
 - **Curated 10 Background Gradients** — 10 hand-picked gradients above the usual 60, each with a guaranteed-readable text color
 - **Suggest a Feature** — send a title + description straight to the developer from Settings, free or Pro, no sign-up required
 - **Chrome Bookmarks Sync** — get notified in BTM when a bookmark is added directly in Chrome, and optionally mirror your BTM Spaces into a dedicated folder in Chrome's own bookmark manager (deletions and lock protection sync too), free for everyone
 - **Custom Space Emoji** — give each space tab its own emoji (plain or animated), same picker already used for folders
 - **Bulk Move to Folder** — bulk-select bookmarks and move them all to any folder across any space in one action
+- **Save All Open Tabs as a Space** — one click in the toolbar popup (or "+ New Space") captures every open tab into a brand-new space
+- **Sub-folders** — nest a folder inside another folder, up to 5 levels deep, via "Add sub-folder" or "Move into folder…" from any folder's ⋮ menu (Pro required — see Pro section below)
 
 ### ⭐ Pro — unlock the full experience
 
@@ -100,6 +102,8 @@ Try Pro free for 1 hour from any new tab — no payment required.
 - **Space Lock** — lock just one sensitive space with its own PIN, separate from Child Lock
 - **Bookmark Visit Goal** — set a weekly visit target on any bookmark, with a progress badge on the card
 - **Text Stroke/Outline** — a 1-5px outline + color for the header Title/Subtitle, and separately for folder titles
+- **Bookmark Groups** — colored divider labels inside any folder to informally section your bookmarks, drag to reposition
+- **Sub-folder Nesting (up to 5 levels)** — nest a folder inside another folder up to 5 levels deep; sub-folder nesting is Pro-only at every level, including the first; plus a Sub-folder Migration tool to split a large flat folder into sub-folders with a checkbox picker; folders with 4+ sub-folders start collapsed, and drag-hovering a bookmark over a collapsed sub-folder auto-expands it for dropping
 
 ## Availability
 
