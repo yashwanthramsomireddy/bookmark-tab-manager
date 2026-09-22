@@ -78,6 +78,7 @@ Try Pro free for 1 hour from any new tab — no payment required.
 - **Bulk Move to Folder** — bulk-select bookmarks and move them all to any folder across any space in one action
 - **Save All Open Tabs as a Space** — one click in the toolbar popup (or "+ New Space") captures every open tab into a brand-new space
 - **Sub-folders** — nest a folder inside another folder, up to 5 levels deep, via "Add sub-folder" or "Move into folder…" from any folder's ⋮ menu (Pro required — see Pro section below)
+- **Hide Page Title** — toggle off the header title/subtitle text in Settings → Widgets; the layout keeps its exact height so nothing else on the page shifts
 
 ### ⭐ Pro — unlock the full experience
 
@@ -98,12 +99,13 @@ Try Pro free for 1 hour from any new tab — no payment required.
 - **Unlimited Incognito** — no monthly cap
 - **Pomodoro Timer + Scratchpad** — 25/5/15 min focus timer, quick notes
 - **Multi-device Activation** — Monthly = 3 devices, Yearly = 5, Lifetime = unlimited
-- **Per-Space Background** — give each space its own background color or image
+- **Per-Space Background** — give each space its own background color or image, with a one-click "Reset to default" to clear both and return to your global theme
 - **Space Lock** — lock just one sensitive space with its own PIN, separate from Child Lock
 - **Bookmark Visit Goal** — set a weekly visit target on any bookmark, with a progress badge on the card
 - **Text Stroke/Outline** — a 1-5px outline + color for the header Title/Subtitle, and separately for folder titles
 - **Bookmark Groups** — colored divider labels inside any folder to informally section your bookmarks, drag to reposition
 - **Sub-folder Nesting (up to 5 levels)** — nest a folder inside another folder up to 5 levels deep; sub-folder nesting is Pro-only at every level, including the first; plus a Sub-folder Migration tool to split a large flat folder into sub-folders with a checkbox picker; folders with 4+ sub-folders start collapsed, and drag-hovering a bookmark over a collapsed sub-folder auto-expands it for dropping
+- **Space Tab Color** — a custom text color picker for your space tab labels, right next to Accent in Colors & Font, applying to every tab whether active or not
 
 ## Availability
 
@@ -111,7 +113,7 @@ Works identically on **Chrome** and **Firefox** — one license key activates on
 
 ## Privacy
 
-Your bookmarks, folders, and settings are stored locally in your browser and never leave your device. A small, clearly-scoped set of features (Pro license validation, the weather widget, AI Auto-Categorize) send only the minimum data needed to work — see the full [Privacy Policy](https://yashwanthramsomireddy.github.io/bookmark-tab-manager/privacy-policy.html) for exactly what's sent, when, and why.
+Your bookmarks, folders, and settings are stored locally in your browser and never leave your device. A small, clearly-scoped set of features (Pro license validation, the weather widget, AI Auto-Categorize, Google Drive Backup) send only the minimum data needed to work — see the full [Privacy Policy](https://yashwanthramsomireddy.github.io/bookmark-tab-manager/privacy-policy.html) for exactly what's sent, when, and why.
 
 ## Tech stack
 

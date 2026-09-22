@@ -2,7 +2,46 @@
 
 All notable changes to Bookmark Tab Manager.
 
-## v2.3.5 — September 2026 (Latest, website copy fix Sep 18)
+## v2.3.13 — September 2026 (Latest)
+
+- **Fix (Backend/Security):** 🔒 The Razorpay account behind BTM's payments is also used by another of our apps (RecruitLens). Razorpay fires the same `payment.captured`/`payment_link.paid` webhook events for every payment on the account regardless of which app it was for, and BTM's webhook (`razorpay-webhook.ts`) treated any such event that wasn't an explicit donation as a BTM Pro purchase — so RecruitLens's own payments were falling into that fallback and getting issued real BTM license keys + confirmation emails. Fixed by requiring every BTM payment to carry a `notes.product === 'BTM'` marker before a license is ever issued; the webhook now rejects (ignores, no DB write, no email) any captured payment that doesn't carry it. Every BTM-initiated Razorpay link — the static plan-purchase links, the discounted-price link, the trial-upgrade link, the renewal reminder/warning links, and the license-validation renewal URL — now stamps that marker so real BTM purchases are unaffected. No action needed by users; this only affects the license-issuing backend.
+- **Fix (Backend, follow-up):** 🔁 While reviewing the fix above, found the license/renewal flow had no duplicate-webhook protection — unlike the donation flow, which already checks for a repeat within 60 seconds. A Razorpay retry (or duplicate delivery) of the same payment event could re-run the renewal path a second time for a purchase that was already processed (observed: a fresh license "renewed" itself ~2 minutes after being created, before ever being activated). Fixed by skipping processing entirely if a license already has that exact `razorpay_id` on record.
+
+## v2.3.12 — September 2026
+
+- **Fix (Pro):** 🖌 Fixed the new "Space tab" text-color picker (added in v2.3.11) appearing to do nothing. The CSS only wired the custom color into the *inactive*-tab and hover rules (`.tab{color:var(--tab-text,...)}`, `.tab:hover:not(.active){color:var(--tab-text-hover,...)}`) — the currently selected/active tab had `color:#000` hardcoded directly on `.tab.active`, a more specific rule that always won regardless of the picker. On a single-space setup, or whichever tab happened to be active while testing, this made the picker look completely broken. Fixed by also driving the active tab's text through the same pref via a new `--tab-text-active` CSS variable (`R.style.setProperty('--tab-text-active', prefs.tabTextColor || '#000')` in `applyTheme()`), so the picker now visibly affects every tab, active or not.
+
+## v2.3.11 — September 2026
+
+- **New (Free):** 🙈 Added a "Hide page title" toggle in Settings → Widgets, directly below the Page Title/Subtitle text fields. Uses `visibility:hidden` rather than `display:none` on the `.header` box specifically so its layout height is preserved — the fixed-position settings gear icon and the space-tabs row's right-corner buttons (+/⊞/⇅) never shift or collide when the title is hidden.
+- **New (Free):** ↺ The per-space "Space Background" popup now has an always-visible "Reset to default" button. Previously the popup only let you clear a custom color (via a "none" swatch) or a custom image (via a conditional "Remove background image" button that only appeared once an image was set) — clearing one never touched the other, so it was easy to end up unable to fully revert a space back to the global theme. The new button clears both `data.spaceBgColors[spaceId]` and `data.spaceBgImages[spaceId]` in one click.
+- **New (Pro):** 🎨 Added a "Space tab" color picker in Settings → 🖌 Colors & Font, directly under Accent — lets you set a global custom text color for your space tab labels, wired the same way as the existing Accent/Text/Secondary pickers (live preview, saved on change, included in that section's "↺ Reset" button). See the v2.3.12 fix above — this shipped with a bug where it didn't visibly affect the active tab.
+
+## v2.3.10 — September 2026
+
+- **UI (Free):** 🎨 Changed the Donate popup's disclaimer text ("100% voluntary. You're not purchasing anything.") and the dynamic payment-method caption above the orange donate button from a low-contrast gray to white, for readability against the popup's pitch-black background.
+
+## v2.3.9 — September 2026
+
+- **Fix (Free):** 💙 Fixed the Donate popup's PayPal link always billing in USD even when an ₹ (INR) amount was selected. `paypal.me` amount links bill in the receiving account's default currency unless the amount is suffixed with an explicit ISO currency code (e.g. `/25INR` vs `/25`) — the code built the amount without that suffix, so an INR selection still opened PayPal showing a $ amount. Fixed by appending the correct currency suffix based on the selected amount's currency.
+- **UI (Free):** ☕ The bottom orange "Donate" button silently duplicates whichever payment method matches your region (Razorpay for India, PayPal otherwise) without saying so. Added a caption above the button naming which method it will use, so this isn't a surprise.
+- **Changed (Free):** ⏳ Consolidated the "please wait" hold/disable logic (added for Razorpay in v2.3.8) into one shared helper (`withDonateHold`) covering all four donate buttons (Razorpay, UPI, PayPal, and the bottom orange button) for consistent behavior — a real wait for Razorpay's payment-link creation, and a short ~500ms cosmetic wait for UPI/PayPal's otherwise-instant paths, so every donate path gives the same "please wait" feedback instead of some buttons reacting instantly and others visibly pausing.
+
+## v2.3.8 — September 2026
+
+- **New (Free):** ☕ Added the same "please wait" hold/disable pattern already used on the Upgrade popup's plan buttons to the Donate popup's Razorpay button — it now shows "Please wait..." and disables itself while its payment link is being created, so it can't be double-clicked into opening two payment tabs.
+
+## v2.3.7 — September 2026
+
+- **New (Free):** ❓ Added a new FAQ entry (in both the in-app Settings FAQ and this website's FAQ) explaining exactly what "Restore JSON backup" vs "Restore HTML backup" each bring back: JSON is a full restore (Spaces, bookmarks, and settings), while HTML restore only brings back bookmarks/folders, since the standard browser bookmark HTML format has no way to store BTM settings or multiple Spaces.
+
+## v2.3.6 — September 2026
+
+- **Fix (Free):** 📤 Fixed `_buildBookmarkHTML()` (used by HTML export/backup) flattening nested sub-folder structure — it ignored each bookmark/folder's `parentId` and wrote every category out at the same indent level. Rewritten to recurse through the real `parentId` chain (with a depth guard against malformed/cyclic data) so exported HTML now preserves real nested sub-folder structure, matching what a real browser bookmarks export looks like.
+- **Fix (Free):** 🔗 Fixed `dedupNode()` in the onboarding HTML-import flow silently dropping a bookmark if its URL already existed anywhere else across *any* folder, even in a completely different folder than the one being imported into — so importing a real Chrome bookmarks HTML export could lose bookmarks that legitimately appeared in more than one folder. Removed the overly-aggressive cross-folder dedup entirely.
+- **New (Free):** 📥 Added a dedicated "Import Bookmarks HTML (from file)" button, and split the previous single auto-detecting restore button on the onboarding/reset screen into two explicit buttons — "Restore JSON backup" and "Restore HTML backup" — so it's clear up front which kind of backup file to pick, instead of relying on the app to guess correctly.
+
+## v2.3.5 — September 2026 (website copy fix Sep 18)
 
 - **Fix (Website):** 📝 Removed a stale, contradictory FAQ entry ("How are my Chrome/Firefox sub-folders handled during import?") on the website that still described the old pre-nesting "Work / Project A" name-flattening behavior and said "True nested sub-folders inside BTM are planned for a future version" — directly contradicting the correct, up-to-date FAQ answer right above it about the current 5-level Pro-only nesting. Caught right before a store release.
 

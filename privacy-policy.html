@@ -33,7 +33,7 @@
   <div class="tagline">Bookmark Manager & New Tab — Chrome & Firefox</div>
 
   <h1>Privacy Policy</h1>
-  <div class="updated">Last updated: August 2026</div>
+  <div class="updated">Last updated: September 2026</div>
 
   <div class="browsers">
     <span class="browser-badge">🌐 Chrome Extension</span>
@@ -41,7 +41,7 @@
   </div>
 
   <div class="highlight">
-    <p><strong>Short version:</strong> Your bookmarks, folders, settings and browsing/session data stay on your device — we never see them. We don't run ad tracking and we don't sell or share your data. A few things do leave your device, and each one is listed plainly in Section 3 below: your email address if you buy Pro, your approximate location if you enable the weather widget, bookmark titles/URLs if you use the optional AI Auto-Categorize feature, your license key for Pro validation, and a fully anonymous install/update/uninstall ping (event, browser, version — nothing identifying you) used for aggregate adoption stats.</p>
+    <p><strong>Short version:</strong> Your bookmarks, folders, settings and browsing/session data stay on your device — we never see them. We don't run ad tracking and we don't sell or share your data. A few things do leave your device, and each one is listed plainly in Section 3 below: your email address if you buy Pro, your approximate location if you enable the weather widget, bookmark titles/URLs if you use the optional AI Auto-Categorize feature, your license key for Pro validation, your backup file if you turn on Google Drive Backup (goes straight to your own Drive, not to us), and a fully anonymous install/update/uninstall ping (event, browser, version — nothing identifying you) used for aggregate adoption stats.</p>
   </div>
 
   <h2>1. Information We Collect</h2>
@@ -59,6 +59,7 @@
     <li>Bookmarked domain names — sent to Google's favicon service to display site icons</li>
     <li>Your license key and an anonymous device fingerprint — sent to our Supabase backend to validate a Pro license</li>
     <li>An anonymous install/update/uninstall event (just event type, browser, and version — no identifiers) — sent automatically to Supabase for aggregate adoption stats</li>
+    <li>Your backup file (bookmarks, folders, and settings, as JSON/HTML/Markdown) — only if you turn on Google Drive Backup, uploaded directly to a folder BTM creates in your own Google Drive. This never passes through our servers — it goes from your browser straight to your Drive.</li>
   </ul>
 
   <h2>2. How Your Data Is Stored</h2>
@@ -84,6 +85,7 @@
     <li><strong>Supabase</strong> — Used to validate Pro license keys. Only the license key and an anonymous device fingerprint (not personally identifiable) are transmitted for validation purposes.</li>
     <li><strong>Supabase — Install Analytics</strong> — On install, update, and uninstall, the extension sends an anonymous event ping (event type, browser, and version number only — no personal data, no device fingerprint, no identifiers tied to you) so we can see aggregate adoption and uninstall trends. This happens automatically as part of normal extension operation.</li>
     <li><strong>Brevo</strong> — Used to send your Pro license key by email after purchase. Your email address is used solely to deliver the license and is not stored beyond that transaction.</li>
+    <li><strong>Google Drive</strong> — Used only if you enable the optional Google Drive Backup feature. When you click "Backup to Google Drive," your bookmarks/folders/settings backup (JSON/HTML, plus Markdown for Pro) is uploaded directly to a "Bookmark Tab Manager Backups" folder that BTM creates in your own Drive — this goes straight from your browser to Google, never through our servers. BTM uses Google's narrowest Drive scope (<code>drive.file</code>), meaning it can only see files/folders it creates itself, never the rest of your Drive. Governed by <a href="https://policies.google.com/privacy" target="_blank">Google's privacy policy</a> for your Drive account.</li>
   </ul>
 
   <h2>4. Permissions Used</h2>
