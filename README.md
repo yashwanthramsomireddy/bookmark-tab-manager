@@ -79,6 +79,10 @@ Try Pro free for 1 hour from any new tab — no payment required.
 - **Save All Open Tabs as a Space** — one click in the toolbar popup (or "+ New Space") captures every open tab into a brand-new space
 - **Sub-folders** — nest a folder inside another folder, up to 5 levels deep, via "Add sub-folder" or "Move into folder…" from any folder's ⋮ menu (Pro required — see Pro section below)
 - **Hide Page Title** — toggle off the header title/subtitle text in Settings → Widgets; the layout keeps its exact height so nothing else on the page shifts
+- **Quick Calculator in Search** — type a math expression or a unit conversion (`10 km to miles`, `100 f to c`) right into the search box for an instant answer, click to copy; toggle on/off in Settings → Tools
+- **Currency Conversion in Search** — optional, off by default — type `100 usd to inr` to look up a live rate (no account or API key needed); turn it on in Settings → Tools
+- **Copy Search Results as Text** — a "Copy list as text" button appears above your search results, copying every currently-matching bookmark to your clipboard in one click
+- **Silent Background Tabs** — right-click "Open in new tab", a folder's "Open all in new tabs", and middle-click/Ctrl+click on any bookmark card all open links silently behind the scenes, keeping you on BTM's own tab
 
 ### ⭐ Pro — unlock the full experience
 
@@ -98,7 +102,7 @@ Try Pro free for 1 hour from any new tab — no payment required.
 - **Export as Markdown** — for Notion, Obsidian, or any note app, folder structure preserved
 - **Unlimited Incognito** — no monthly cap
 - **Pomodoro Timer + Scratchpad** — 25/5/15 min focus timer, quick notes
-- **Multi-device Activation** — Monthly = 3 devices, Yearly = 5, Lifetime = unlimited
+- **Multi-device Activation** — Monthly = 3 devices, Yearly = 5, Lifetime = 10; from the 2nd device onward, activating on a new device emails a one-time confirmation code to the license's address first (a key's very first activation is never gated)
 - **Per-Space Background** — give each space its own background color or image, with a one-click "Reset to default" to clear both and return to your global theme
 - **Space Lock** — lock just one sensitive space with its own PIN, separate from Child Lock
 - **Bookmark Visit Goal** — set a weekly visit target on any bookmark, with a progress badge on the card
@@ -106,6 +110,7 @@ Try Pro free for 1 hour from any new tab — no payment required.
 - **Bookmark Groups** — colored divider labels inside any folder to informally section your bookmarks, drag to reposition
 - **Sub-folder Nesting (up to 5 levels)** — nest a folder inside another folder up to 5 levels deep; sub-folder nesting is Pro-only at every level, including the first; plus a Sub-folder Migration tool to split a large flat folder into sub-folders with a checkbox picker; folders with 4+ sub-folders start collapsed, and drag-hovering a bookmark over a collapsed sub-folder auto-expands it for dropping
 - **Space Tab Color** — a custom text color picker for your space tab labels, right next to Accent in Colors & Font, applying to every tab whether active or not
+- **Widget Alignment** — set the clock (paired with Dual Timezone Clock) and weather independently to left, center, or right in Settings → Clock & Weather
 
 ## Availability
 

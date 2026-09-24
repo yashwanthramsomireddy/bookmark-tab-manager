@@ -2,7 +2,39 @@
 
 All notable changes to Bookmark Tab Manager.
 
-## v2.3.13 — September 2026 (Latest)
+## v2.3.19 — September 2026 (Latest)
+
+- **Improved:** Clarified the device-activation security note from v2.3.18 — the one-time email code applies from the 2nd device onward; a license's very first activation was always exempt, the wording just didn't say so clearly.
+
+## v2.3.18 — September 2026
+
+- **New (Security):** 🔐 Activating a license key on a new device — the 2nd device onward — now requires a one-time 6-digit code emailed to the address on file for that license, entered to finish activating. A key's very first-ever activation is never gated this way (nobody else has had the chance to see the key yet at that point), and reinstalling or reactivating on a device that's already activated is unaffected too. The reasoning: a license key is just text, so if one ever ends up somewhere it shouldn't (shared publicly, screenshotted, etc.), this stops a stranger from activating it on their own device, since they have no access to the inbox the code goes to. It doesn't stop a buyer who deliberately hands their key *and* the code to someone they know — no software-side check can — but that's a much narrower case than an anonymous leak.
+
+## v2.3.17 — September 2026
+
+- **New (Free):** ⓘ Added an info icon next to "Quick calculator (search box)" in Settings → 🛠 Tools — click it for a quick popup of example queries (math, unit conversion, and currency conversion) right where you're deciding whether to turn the feature on, instead of needing to already know it's explained in the FAQ.
+
+## v2.3.16 — September 2026
+
+- **Fix (Free):** 💱 Currency conversion could still fail for perfectly-supported pairs (e.g. "100 usd to inr") even after the v2.3.15 currency-list fix, still showing the misleading "Currency conversion failed — check your connection" message. Root cause: the free exchange-rate API this feature uses (Frankfurter, ECB reference rates) moved its public address from `api.frankfurter.app` to `api.frankfurter.dev`, and the old address now answers with an HTTP redirect instead of data directly — which a cross-origin `fetch()` from an extension page doesn't always follow the way a normal page navigation would, so the request quietly failed. Fixed by calling the new address (`api.frankfurter.dev/v1`) directly. No settings or behavior changed on your end — just paste an amount and two currencies as before.
+
+## v2.3.15 — September 2026
+
+- **Fix (Free):** 💱 Currency conversion (added in v2.3.14) could show "Currency conversion failed — check your connection" for AED, SAR, and RUB — that message was misleading, since it wasn't a connection problem: those three currencies were never actually available from Frankfurter, the free exchange-rate API this feature uses. RUB was dropped from ECB reference rates after the 2022 sanctions, and AED/SAR are USD-pegged Gulf currencies the ECB has never tracked. Removed those three and verified the remaining list against Frankfurter's own `/currencies` endpoint, adding several currencies we'd missed that ARE genuinely supported (CZK, HUF, IDR, ILS, MYR, PHP, RON, ISK) — 30 total now, all confirmed working.
+- **New (Free):** ❓ Added an FAQ entry — in both the in-app Settings FAQ and this website's FAQ — explaining exactly how to use the quick calculator and currency conversion features in the search box, including the full list of supported currencies.
+- **Fix (Free):** 🖱️ The v2.3.14 middle-click fix worked in Firefox but not Chrome. Root cause: Chrome has its own middle-click "autoscroll" gesture that can claim the mousedown before the page's own `auxclick` handler ever fires — a known Chromium quirk on non-`<a>` elements that Firefox doesn't share. Fixed by calling `preventDefault()` on the middle button's `mousedown` first, which suppresses Chrome's autoscroll takeover so the background-tab handler now fires reliably in both browsers.
+- **Fix (Firefox-only, no user-facing change):** 🦊 The Firefox package's manifest had a `data_collection_permissions` entry (Mozilla's new data-collection-disclosure requirement) sitting at the top level of manifest.json, where Firefox doesn't recognize it — it belongs nested under `browser_specific_settings.gecko`. Moved to the correct location and filled in based on what BTM actually collects per the Privacy Policy (location for weather, bookmark titles/URLs for AI Auto-Categorize and Drive Backup, email for Pro purchases, and the anonymous install/update ping) — all listed as optional, since every one of those features can be turned off or is opt-in.
+
+## v2.3.14 — September 2026
+
+- **Fix (Free):** 🔗 Right-click → "Open in new tab" (single bookmark) and a folder's "Open all in new tabs" both used `window.open(url,'_blank')`, which steals browser focus to the newly opened tab(s) — you'd get yanked away from BTM's own new tab every time. Both now use `chrome.tabs.create({url, active:false})` instead, the same silent-background pattern already used elsewhere in the codebase (auto-filling a bookmark's title from its URL), so links open behind the scenes and you stay right where you were.
+- **Fix (Free):** 🖱️ Middle-click and Ctrl/Cmd+click didn't work on any bookmark card. Root cause: bookmark cards are `<div>`s with a single left-click handler, not real `<a>` links, so they never got the browser's native new-tab-click behavior for free — middle-click fires a different event (`auxclick`) that nothing was listening for, and Ctrl/Cmd+click fired the same handler but nothing checked for the modifier, so it just navigated the current tab anyway. Fixed everywhere this pattern appeared: the main grid cards, the pinned bar, Most Visited, Recently Visited, and the search-preview dropdown all now open silently in a new background tab on middle-click or Ctrl/Cmd+click.
+- **New (Free):** 🧮 Quick calculator in the search box — type a plain math expression (`12*7+3`) or a unit conversion (`10 km to miles`, `100 f to c`, `5 kg in lbs`) and see the answer as a highlighted top row in the search dropdown; click it to copy the result. Fully offline, no network call. Toggle it off in Settings → 🛠 Tools if you'd rather the search box only ever search bookmarks.
+- **New (Free):** 💱 Optional currency conversion in the same search box (`100 usd to inr`) — looks up the live rate from the free Frankfurter API (ECB reference rates, no API key, no personal data sent, just the amount and two currency codes). **Off by default** since it's a new network call triggered from the search bar; turn it on in Settings → 🛠 Tools → "Currency conversion (uses network)". See the Privacy Policy for exactly what's sent.
+- **New (Free):** 📋 A "Copy list as text" button now appears above your search results whenever you're searching — copies every currently-matching bookmark (folder heading + name + URL) across every matched folder to your clipboard in one action, extending the existing per-folder "Copy all links in folder" to the whole search result set at once.
+- **New (Pro):** ↔️ Widget alignment controls in Settings → 🕐 Clock & Weather — set the clock (paired with the Dual Timezone Clock, since they already render as one row) to left/center/right, and set Weather independently. Stats and Pinned are unaffected by design.
+
+## v2.3.13 — September 2026
 
 - **Fix (Backend/Security):** 🔒 The Razorpay account behind BTM's payments is also used by another of our apps (RecruitLens). Razorpay fires the same `payment.captured`/`payment_link.paid` webhook events for every payment on the account regardless of which app it was for, and BTM's webhook (`razorpay-webhook.ts`) treated any such event that wasn't an explicit donation as a BTM Pro purchase — so RecruitLens's own payments were falling into that fallback and getting issued real BTM license keys + confirmation emails. Fixed by requiring every BTM payment to carry a `notes.product === 'BTM'` marker before a license is ever issued; the webhook now rejects (ignores, no DB write, no email) any captured payment that doesn't carry it. Every BTM-initiated Razorpay link — the static plan-purchase links, the discounted-price link, the trial-upgrade link, the renewal reminder/warning links, and the license-validation renewal URL — now stamps that marker so real BTM purchases are unaffected. No action needed by users; this only affects the license-issuing backend.
 - **Fix (Backend, follow-up):** 🔁 While reviewing the fix above, found the license/renewal flow had no duplicate-webhook protection — unlike the donation flow, which already checks for a repeat within 60 seconds. A Razorpay retry (or duplicate delivery) of the same payment event could re-run the renewal path a second time for a purchase that was already processed (observed: a fresh license "renewed" itself ~2 minutes after being created, before ever being activated). Fixed by skipping processing entirely if a license already has that exact `razorpay_id` on record.
@@ -454,7 +486,7 @@ All notable changes to Bookmark Tab Manager.
 - **Improved:** Renewal warning popup — 7 days before expiry, once per day
 - **Improved:** Manage Devices popup — list all devices, deactivate any device
 - **Improved:** License auto-validates on paste and auto-reloads after activation
-- **Improved:** Device limits: Monthly = 3 devices, Yearly = 5, Lifetime = unlimited
+- **Improved:** Device limits: Monthly = 3 devices, Yearly = 5, Lifetime = 10
 - **Fix:** Admin dashboard browser breakdown — Chrome vs Firefox bar chart
 - **Fix:** Admin-only endpoints now require a secret never shipped in the extension, closing an unauthenticated stats leak
 - **Fix:** Admin dashboard flags license keys with unusually high device counts for review
