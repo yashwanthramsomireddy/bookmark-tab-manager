@@ -2,7 +2,82 @@
 
 All notable changes to Bookmark Tab Manager.
 
-## v2.3.19 — September 2026 (Latest)
+## v3.0.2 — September 2026 (Latest)
+
+- **Fixed:** Recent Donations, Recent Licenses, Expired — Not Yet Renewed, and Feature Suggestions in the Admin Dashboard now show a visible scrollbar at rest and cap at roughly 5 rows before scrolling.
+- **Fixed:** The Admin Dashboard's Feature Suggestions panel sometimes sat on "Loading..." until Refresh was clicked — two panels were racing to open the same one-time-code popup on first open.
+- **New (Admin):** Feature Suggestions gained a "look up owner" button on Pro submissions to find the submitting device's license email.
+- **New (Admin):** Dashboard now shows revenue broken down by Monthly/Yearly/Lifetime plan, plus a total for the selected period.
+
+## v3.0.1 — September 2026
+
+- **Fixed:** The scrollbar inside popups like Auto-File Rules Manager, Changelog, and Keyboard Shortcuts is now visible at rest on a long list, instead of only appearing once you hover over it.
+
+## v3.0.0 — September 2026
+
+- **New (Free):** Number-key space switching — press 1-9 (not while typing) to jump straight to that space, in addition to the existing arrow-key switching.
+- **New (Free):** Motion Polish and the bookmark-added pop/milestone confetti now also respect your OS-level "Reduce Motion" setting, on top of the in-app toggle.
+- **New (Free):** Lock Space Order — a new toggle that stops space tabs from being accidentally drag-reordered.
+- **New (Free):** Backup Age Badge — Import & Backup now shows how long it's been since your last Drive/JSON backup.
+- **New (Free):** To-Do mini checklist — a simple task list widget, separate from your bookmarks.
+- **New (Free):** Tab Count badge — a widget showing how many tabs are open in your current window, live.
+- **New (Free):** Daily Quote widget — a new quote each day, right on your new tab.
+- **New (Pro):** Auto-File Rules now hold up to 50 rules on Pro (free stays at 20), managed from a new scrollable popup with an always-reachable "+ Add Rule" button.
+- **New (Pro):** Most-Clicked Sites — a widget ranking the domains you click into most, grouping bookmarks from the same site together.
+- **New (Pro):** Photo Slideshow Background — pick up to 10 of your own photos and let them cycle behind your new tab with a Ken-Burns zoom; speed, per-photo duration, transition, and overlay are all adjustable.
+- **Improved (Admin):** Feature Suggestions now show the submitting device's ID (free and Pro) instead of appearing anonymous.
+
+## v2.3.29 — September 2026
+
+- **Improved:** Added an FAQ entry (in-app and on this website) for "Forgot your PIN?" — the existing one-time emailed reset code that clears a forgotten Child Lock or Space Lock PIN. No behavior changed, just easier to find.
+
+## v2.3.28 — September 2026
+
+- **Fixed:** Clearer message if a Google Drive backup doesn't go through — now says "Backup didn't go through — try again in a moment" instead of a technical error string.
+
+## v2.3.27 — September 2026
+
+- **New (Free):** Auto-File Rules — set up rules like "URL contains github.com → File into Dev Tools", and matching bookmarks file themselves automatically when you use + Add Bookmark or the ➕ quick-add button. First matching rule wins.
+
+## v2.3.26 — September 2026
+
+- **New (Free):** Subtle animations (optional, off by default) — a soft fade when switching spaces, and a small pop when a bookmark is added.
+- **New (Free):** Milestone celebration — a one-time confetti moment the first time your bookmark count crosses 25, 50, 100, 250, 500, 1000, and beyond.
+- **New (Free):** Click sounds (optional, off by default) — a very subtle tick when adding a bookmark or switching spaces, separate from Ambient Sounds.
+- **New (Pro):** Custom title font — a separate font just for the header title/subtitle/clock, independent of the whole-app body font.
+- **New (Pro):** Folder card shape presets — Sharp/Rounded/Pill quick-picks next to the existing corner-radius slider.
+- **New (Free):** Space tab color coding — click the small new dot on any space tab to give it its own color, so your spaces are tellable apart at a glance.
+- **Improved:** Clarified the "Restore JSON backup" vs "Restore HTML backup" FAQ — HTML backups don't carry tags, colored dividers, or per-space settings; only JSON is a full backup.
+
+## v2.3.25 — September 2026
+
+- **Fixed:** Deactivating your current device from Manage Devices, or using "Deactivate ALL Devices," now also clears the cached license key on that device (matching "Deactivate License (this device)"), instead of just turning Pro off and leaving the old key cached locally.
+- **Improved:** Updated the "Deactivate ALL Devices" FAQ to explain more clearly what happens on the device you click it from vs. every other device on the key.
+
+## v2.3.24 — September 2026
+
+- **Improved:** Added FAQ entries (in-app and on this website) explaining the new-device activation code, what "Deactivate ALL Devices" does, and why a deactivated device may still show Pro for a few hours until its next check-in.
+
+## v2.3.23 — September 2026
+
+- **New (Pro):** Manage Devices: added a "⚠️ Deactivate ALL Devices on This License" reset option (type RESET to confirm) — resets every device on the key in one step instead of deactivating each one individually. Kept separate from "Deactivate License (this device)" above it, which still only ever affects the device you're on.
+
+## v2.3.22 — September 2026
+
+- **New (Security):** A device deactivated from Manage Devices (from that browser or another) now loses Pro on its own within a few hours, instead of only correcting itself the next time Manage Devices happens to be reopened. The periodic license check now runs every 6 hours (was daily) and checks this specific device, not just whether the account overall is still active.
+
+## v2.3.21 — September 2026
+
+- **Fixed:** Manage Devices: your current device now always sorts to the top of the list, and if it was deactivated from another browser/session it's now detected and reflected here automatically instead of silently staying "Pro" until you noticed.
+- **Improved:** Manage Devices now scrolls once you have more than a few devices, instead of stretching the whole popup taller.
+- **Improved:** The FAQ search box now has a ✕ to quickly clear your search.
+
+## v2.3.20 — September 2026
+
+- **Fixed:** Manage Devices (Settings → About) now correctly lists every device activated on your license and shows an accurate "X/Y devices activated" count — a backend tracking issue was preventing this from displaying properly.
+- **Improved:** FAQ questions in Settings → FAQ & Help are now numbered for easier reference.
+
+## v2.3.19 — September 2026
 
 - **Improved:** Clarified the device-activation security note from v2.3.18 — the one-time email code applies from the 2nd device onward; a license's very first activation was always exempt, the wording just didn't say so clearly.
 
