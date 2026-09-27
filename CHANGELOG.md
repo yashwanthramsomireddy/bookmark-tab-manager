@@ -2,14 +2,7 @@
 
 All notable changes to Bookmark Tab Manager.
 
-## v3.0.2 — September 2026 (Latest)
-
-- **Fixed:** Recent Donations, Recent Licenses, Expired — Not Yet Renewed, and Feature Suggestions in the Admin Dashboard now show a visible scrollbar at rest and cap at roughly 5 rows before scrolling.
-- **Fixed:** The Admin Dashboard's Feature Suggestions panel sometimes sat on "Loading..." until Refresh was clicked — two panels were racing to open the same one-time-code popup on first open.
-- **New (Admin):** Feature Suggestions gained a "look up owner" button on Pro submissions to find the submitting device's license email.
-- **New (Admin):** Dashboard now shows revenue broken down by Monthly/Yearly/Lifetime plan, plus a total for the selected period.
-
-## v3.0.1 — September 2026
+## v3.0.1 — September 2026 (Latest)
 
 - **Fixed:** The scrollbar inside popups like Auto-File Rules Manager, Changelog, and Keyboard Shortcuts is now visible at rest on a long list, instead of only appearing once you hover over it.
 
@@ -25,7 +18,6 @@ All notable changes to Bookmark Tab Manager.
 - **New (Pro):** Auto-File Rules now hold up to 50 rules on Pro (free stays at 20), managed from a new scrollable popup with an always-reachable "+ Add Rule" button.
 - **New (Pro):** Most-Clicked Sites — a widget ranking the domains you click into most, grouping bookmarks from the same site together.
 - **New (Pro):** Photo Slideshow Background — pick up to 10 of your own photos and let them cycle behind your new tab with a Ken-Burns zoom; speed, per-photo duration, transition, and overlay are all adjustable.
-- **Improved (Admin):** Feature Suggestions now show the submitting device's ID (free and Pro) instead of appearing anonymous.
 
 ## v2.3.29 — September 2026
 
