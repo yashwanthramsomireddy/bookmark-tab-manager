@@ -2,7 +2,27 @@
 
 All notable changes to Bookmark Tab Manager.
 
-## v3.0.1 — September 2026 (Latest)
+## v3.2.1 — September 2026 (Latest)
+
+- **Fixed:** Keyboard Shortcuts labels ("Focus search", "Quick add current tab", etc.) could go unreadable in the Customize popup against a bright page background/photo.
+
+## v3.2.0 — September 2026
+
+- **New (Free):** Smart Media Folders — save a YouTube or Spotify playlist link and BTM automatically files it into its own "🎥 YouTube Playlists" / "🎵 Spotify Playlists" folder, creating it on the spot if you don't have one yet. Works out of the box, no setup needed.
+
+## v3.1.0 — September 2026
+
+- **New (Pro):** Slideshow Videos — add up to 5 short video clips (30s max each) right into your Photo Slideshow Background, mixed in alongside your photos. Upload a longer clip and BTM shows a trim popup so you can pick which 30 seconds to keep, no re-encoding.
+- **New (Pro):** Per-Space Slideshow — give an individual Space its own set of slideshow photos/clips, separate from your global Slideshow Background.
+- **New (Pro):** Weather-reactive background — a subtle rain/snow overlay appears automatically when the Weather widget says it's actually raining/snowing at your location.
+- **New (Free):** Animated GIFs are now supported as Slideshow Background photos, not just static images.
+- **New (Free):** Slideshow Background now shows a small position-dot row (click to jump to any slide) once you have 2 or more photos/clips.
+
+## v3.0.2 – 3.0.8 — September 2026
+
+- **Fixed:** Behind-the-scenes backend and infrastructure fixes — nothing user-facing changed in this range.
+
+## v3.0.1 — September 2026
 
 - **Fixed:** The scrollbar inside popups like Auto-File Rules Manager, Changelog, and Keyboard Shortcuts is now visible at rest on a long list, instead of only appearing once you hover over it.
 
