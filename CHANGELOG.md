@@ -2,7 +2,11 @@
 
 All notable changes to Bookmark Tab Manager.
 
-## v3.2.1 — September 2026 (Latest)
+## v3.2.2 — October 2026 (Latest)
+
+- **Fixed:** Resetting BTM and re-importing from Chrome/Firefox could pick up BTM's own "Bookmark Tab Manager" write-back folder (created by Chrome Bookmarks Sync) and re-import it as if it were real, separate bookmarks. That folder is now always skipped during import.
+
+## v3.2.1 — September 2026
 
 - **Fixed:** Keyboard Shortcuts labels ("Focus search", "Quick add current tab", etc.) could go unreadable in the Customize popup against a bright page background/photo.
 
