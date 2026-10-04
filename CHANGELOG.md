@@ -2,7 +2,15 @@
 
 All notable changes to Bookmark Tab Manager.
 
-## v3.2.2 — October 2026 (Latest)
+## v3.2.4 — October 2026 (Latest)
+
+- **Fixed:** Clicking "Backup to Google Drive" again before a previous backup had finished uploading could let 2 free-tier backups through in the same month instead of the intended 1.
+
+## v3.2.3 — October 2026
+
+- **Fixed:** Resetting BTM while Chrome Bookmarks Sync was on, then turning sync back on, could create a duplicate "Home" (or other Space-name) folder inside Chrome's "Bookmark Tab Manager" folder each time, instead of reusing the existing one.
+
+## v3.2.2 — October 2026
 
 - **Fixed:** Resetting BTM and re-importing from Chrome/Firefox could pick up BTM's own "Bookmark Tab Manager" write-back folder (created by Chrome Bookmarks Sync) and re-import it as if it were real, separate bookmarks. That folder is now always skipped during import.
 
