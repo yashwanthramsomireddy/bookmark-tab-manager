@@ -34,8 +34,8 @@ Try Pro free for 1 hour from any new tab — no payment required.
 - **Privacy Mode** — blur all folders for screen sharing
 - **Open in Incognito** — 100 opens/month
 - **Right-click Context Menu** — 13 quick actions (edit, duplicate, tag, remind, QR code, etc.)
-- **Broken Link Checker** — scan up to 50 bookmarks per click
-- **Weekly Broken Link Scan** — automatic background scan with notification
+- **Broken Link Checker** — scan up to 50 bookmarks per click (your browser asks once for permission to contact your bookmarked sites; checks run directly from your device)
+- **Weekly Broken Link Scan** — automatic background scan with notification (uses the same one-time permission)
 - **Folder Emoji Picker** — 200+ emojis, 100+ animated (2 animated folders/month free)
 - **Bulk Select & Delete** — plus bulk tag add/remove and drag-to-select a group of bookmarks; auto-opens sub-folders while Bulk mode is on
 - **Backup & Restore** — export/import as JSON, plus Chrome-compatible HTML
@@ -102,6 +102,7 @@ Try Pro free for 1 hour from any new tab — no payment required.
 - **Export as Markdown** — for Notion, Obsidian, or any note app, folder structure preserved
 - **Unlimited Incognito** — no monthly cap
 - **Pomodoro Timer + Scratchpad** — 25/5/15 min focus timer, quick notes
+- **Safer License Checks (v4.0)** — Pro is only removed after the license server repeatedly and definitively says the key is invalid; network errors or server hiccups never downgrade you
 - **Multi-device Activation** — Monthly = 3 devices, Yearly = 5, Lifetime = 10; from the 2nd device onward, activating on a new device emails a one-time confirmation code to the license's address first (a key's very first activation is never gated)
 - **Per-Space Background** — give each space its own background color or image, with a one-click "Reset to default" to clear both and return to your global theme
 - **Space Lock** — lock just one sensitive space with its own PIN, separate from Child Lock

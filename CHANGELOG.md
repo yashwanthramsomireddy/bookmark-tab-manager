@@ -2,7 +2,33 @@
 
 All notable changes to Bookmark Tab Manager.
 
-## v3.2.4 — October 2026 (Latest)
+## v4.0 — November 2026 (Latest)
+
+- **Fixed:** Pro could silently switch back to Free after a few days. A temporary server hiccup during the background license check was being treated as "license invalid". Pro is now removed only after the server gives a definite answer more than once; network errors, server downtime and unclear replies never change your plan.
+- **Changed:** The license server now reports temporary problems as such, so even older versions of the extension are no longer downgraded by them.
+
+## v3.2.8 — October 2026
+
+- **New (Admin):** Dashboard shows a single "Total Earned" number (donations + license sales combined).
+- **New (Admin):** Recent Licenses table shows what each buyer actually paid — full price, or a 🏷️ Discounted badge for sales made during an active discount. CSV export includes the new columns.
+
+## v3.2.7 — October 2026
+
+- **Fixed:** Broken Link Checker and the weekly scan reported many working bookmarks as broken because the browser blocked cross-site requests. They now ask once for permission to contact your bookmarked sites and check them directly from your device.
+
+## v3.2.6 — October 2026
+
+- **Changed:** Dragging a folder onto another now reorders them by default (no more accidental nesting) — hold Shift while you drop to nest instead, with the live "⇄ reorder" / "↳ nest" badge updating instantly either way.
+
+## v3.2.5 — October 2026
+
+- **Fixed:** Dragging a folder onto another always nested it with no way to tell beforehand — now shows a live "↳ nest" / "⇄ reorder" badge while dragging, updating instantly if you hold Shift.
+- **Fixed:** "Move to Space" could make a folder vanish instead of moving it, if that folder had any sub-folder relationship — it now always lands as a top-level folder in the new space and brings its whole sub-folder subtree along with it.
+- **Fixed:** Chrome Bookmarks Sync didn't follow a folder when you nested it, un-nested it, or moved it to another space — the native Chrome copy now moves to match.
+- **Fixed:** Deleting a Space left behind its folders' and bookmarks' colors, emojis, notes, tags, and other settings under dead ids instead of cleaning them up.
+- **Fixed:** Bulk-deleting selected bookmarks now uses the same confirmation popup and 10-second Undo as every other delete in the app, instead of a plain browser confirm with no way back.
+
+## v3.2.4 — October 2026
 
 - **Fixed:** Clicking "Backup to Google Drive" again before a previous backup had finished uploading could let 2 free-tier backups through in the same month instead of the intended 1.
 
