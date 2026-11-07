@@ -133,8 +133,8 @@ Your bookmarks, folders, and settings are stored locally in your browser and nev
 Questions, bug reports, or feedback:
 
 - 📧 [yashwanthramsomireddy@gmail.com](mailto:yashwanthramsomireddy@gmail.com)
-- 💬 [Telegram](https://t.me/BookmarkTabManager)
-- 💬 [WhatsApp](https://chat.whatsapp.com/BpZgK3DRcIqA2R9RDn7qBX)
+- 💬 [TeamExyKings News Channel (Telegram)](https://t.me/TeamExyKings_Channel)
+- 💬 [TeamExyKings Community (WhatsApp)](https://chat.whatsapp.com/BpZgK3DRcIqA2R9RDn7qBX)
 
 ---
 

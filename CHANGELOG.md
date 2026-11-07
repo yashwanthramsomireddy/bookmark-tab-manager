@@ -2,7 +2,11 @@
 
 All notable changes to Bookmark Tab Manager.
 
-## v4.0 — November 2026 (Latest)
+## v4.1 — November 2026 (Latest)
+
+- **New:** TeamExyKings News Channel on Telegram for updates and offers; the WhatsApp group is now the TeamExyKings Community for help. Links and labels updated in About, Onboarding, FAQ and the website.
+
+## v4.0 — November 2026
 
 - **Fixed:** Pro could silently switch back to Free after a few days. A temporary server hiccup during the background license check was being treated as "license invalid". Pro is now removed only after the server gives a definite answer more than once; network errors, server downtime and unclear replies never change your plan.
 - **Changed:** The license server now reports temporary problems as such, so even older versions of the extension are no longer downgraded by them.
